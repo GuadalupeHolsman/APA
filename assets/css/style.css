@@ -31,7 +31,43 @@
   --fuente-base: "Raleway", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif;
   --radio-base: 12px;
   --ancho-lectura: 1100px;
+
+  --sombra-suave: 0 1px 3px rgba(42, 38, 34, 0.06);
+  --sombra-media: 0 8px 20px rgba(42, 38, 34, 0.12);
+  --sombra-fuerte: 0 16px 40px rgba(42, 38, 34, 0.18);
 }
+
+/* ---------- Animaciones ---------- */
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes flotar {
+  0%, 100% { transform: translateY(0) rotate(var(--angulo, 0deg)); }
+  50% { transform: translateY(-14px) rotate(var(--angulo, 0deg)); }
+}
+@keyframes brillo {
+  0% { transform: translateX(-120%) skewX(-15deg); }
+  100% { transform: translateX(220%) skewX(-15deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+}
+
+/* Revelado progresivo al hacer scroll */
+[data-revelar] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+[data-revelar].visible { opacity: 1; transform: translateY(0); }
+[data-revelar-grupo] > *:nth-child(1) { transition-delay: 0s; }
+[data-revelar-grupo] > *:nth-child(2) { transition-delay: 0.08s; }
+[data-revelar-grupo] > *:nth-child(3) { transition-delay: 0.16s; }
+[data-revelar-grupo] > *:nth-child(4) { transition-delay: 0.24s; }
+[data-revelar-grupo] > *:nth-child(5) { transition-delay: 0.32s; }
+[data-revelar-grupo] > *:nth-child(6) { transition-delay: 0.4s; }
 
 /* ---------- Reset básico ---------- */
 * { box-sizing: border-box; }
@@ -56,7 +92,7 @@ button { font-family: inherit; cursor: pointer; }
   padding: 0 var(--espacio-sm);
 }
 
-.TextoDisplay { font-size: var(--texto-display); line-height: 1.15; font-weight: 800; }
+.TextoDisplay { font-size: clamp(var(--texto-display), 4vw + 1rem, 3.4rem); line-height: 1.12; font-weight: 800; letter-spacing: -0.01em; }
 .TextoGrande { font-size: var(--texto-grande); font-weight: 700; }
 .TextoBase { font-size: var(--texto-base-size); }
 .TextoPequeno { font-size: var(--texto-pequeno); color: var(--texto-suave); }
@@ -86,9 +122,26 @@ button { font-family: inherit; cursor: pointer; }
   padding: var(--espacio-xs) var(--espacio-sm);
   font-size: var(--texto-base-size);
   font-weight: 700;
-  transition: background 0.15s ease, transform 0.1s ease;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
 }
-.BtnPrimario:hover { background: var(--color-secundario-oscuro); }
+.BtnPrimario::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: translateX(-120%) skewX(-15deg);
+  z-index: -1;
+}
+.BtnPrimario:hover {
+  background: var(--color-secundario-oscuro);
+  transform: translateY(-2px);
+  box-shadow: var(--sombra-media);
+}
+.BtnPrimario:hover::after { animation: brillo 0.9s ease; }
+.BtnPrimario:hover .IconoPata { animation: flotar 0.6s ease; }
 .BtnPrimario:active { transform: scale(0.98); }
 
 /* Botón secundario */
@@ -104,9 +157,9 @@ button { font-family: inherit; cursor: pointer; }
   padding: var(--espacio-xs) var(--espacio-sm);
   font-size: var(--texto-base-size);
   font-weight: 700;
-  transition: background 0.15s ease;
+  transition: background 0.15s ease, transform 0.15s ease;
 }
-.BtnSecundario:hover { background: rgba(232, 178, 58, 0.18); }
+.BtnSecundario:hover { background: rgba(232, 178, 58, 0.18); transform: translateY(-2px); }
 
 /* Etiquetas de estado */
 .EtiquetaEstado_Disponible,
@@ -118,6 +171,7 @@ button { font-family: inherit; cursor: pointer; }
   border-radius: 999px;
   text-transform: uppercase;
   letter-spacing: 0.03em;
+  transition: transform 0.2s ease;
 }
 .EtiquetaEstado_Disponible {
   background: #E4F0DE;
@@ -184,6 +238,7 @@ button { font-family: inherit; cursor: pointer; }
   object-fit: cover;
   border-radius: var(--radio-base) var(--radio-base) 0 0;
   background: var(--borde-suave);
+  transition: transform 0.5s ease;
 }
 
 /* Ícono de pata (decorativo) */
@@ -204,15 +259,18 @@ button { font-family: inherit; cursor: pointer; }
   border-radius: var(--radio-base);
   overflow: hidden;
   border: 1px solid var(--borde-suave);
-  box-shadow: 0 1px 3px rgba(42, 38, 34, 0.06);
+  box-shadow: var(--sombra-suave);
   display: flex;
   flex-direction: column;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 .TarjetaAnimal:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(42, 38, 34, 0.12);
+  transform: translateY(-6px);
+  box-shadow: var(--sombra-fuerte);
 }
+.TarjetaAnimal:hover .ImagenAnimal { transform: scale(1.08); }
+.TarjetaAnimal:hover .EtiquetaEstado_Disponible,
+.TarjetaAnimal:hover .EtiquetaEstado_EnProceso { transform: scale(1.05); }
 .TarjetaAnimal-cuerpo {
   padding: var(--espacio-sm);
   display: flex;
@@ -298,6 +356,7 @@ button { font-family: inherit; cursor: pointer; }
   font-weight: 800;
   color: var(--color-secundario);
   display: block;
+  font-variant-numeric: tabular-nums;
 }
 .DatoInstitucional-etiqueta {
   font-size: var(--texto-base-size);
@@ -315,6 +374,12 @@ button { font-family: inherit; cursor: pointer; }
   position: sticky;
   top: 0;
   z-index: 100;
+  transition: box-shadow 0.2s ease, background 0.2s ease;
+}
+.EncabezadoPrincipal--flotante {
+  background: rgba(251, 246, 236, 0.92);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 16px rgba(42, 38, 34, 0.08);
 }
 .EncabezadoPrincipal-contenedor {
   max-width: var(--ancho-lectura);
@@ -363,13 +428,27 @@ button { font-family: inherit; cursor: pointer; }
 
 /* Hero de inicio */
 .HeroInicio {
-  background: linear-gradient(180deg, rgba(42, 38, 34, 0.55), rgba(42, 38, 34, 0.7)),
+  position: relative;
+  background: linear-gradient(180deg, rgba(42, 38, 34, 0.6), rgba(42, 38, 34, 0.78)),
     var(--imagen-hero, none) center/cover no-repeat;
   background-color: var(--color-secundario);
   color: #fff;
   width: 100%;
+  overflow: hidden;
+}
+.HeroInicio::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='%23FFFFFF'%3E%3Cellipse cx='8.4' cy='7.3' rx='2.6' ry='3.3' transform='rotate(-18 8.4 7.3)'/%3E%3Cellipse cx='15.6' cy='7.3' rx='2.6' ry='3.3' transform='rotate(18 15.6 7.3)'/%3E%3Cellipse cx='4.2' cy='12.4' rx='2.3' ry='3' transform='rotate(-38 4.2 12.4)'/%3E%3Cellipse cx='19.8' cy='12.4' rx='2.3' ry='3' transform='rotate(38 19.8 12.4)'/%3E%3Cpath d='M12 12.2c2.9 0 5.3 1.9 5.9 4.5.5 2.1-1.1 4.1-3.3 4.1-.9 0-1.7-.3-2.6-.3s-1.7.3-2.6.3c-2.2 0-3.8-2-3.3-4.1.6-2.6 3-4.5 5.9-4.5z'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 90px 90px;
+  background-repeat: repeat;
+  opacity: 0.05;
+  transform: rotate(-8deg);
+  pointer-events: none;
 }
 .HeroInicio-contenido {
+  position: relative;
   max-width: 640px;
   margin: 0 auto;
   padding: var(--espacio-lg) var(--espacio-sm);
@@ -378,6 +457,11 @@ button { font-family: inherit; cursor: pointer; }
   align-items: flex-start;
   gap: var(--espacio-sm);
 }
+.HeroInicio-contenido > * { animation: aparecer 0.7s ease both; }
+.HeroInicio-contenido > *:nth-child(1) { animation-delay: 0.05s; }
+.HeroInicio-contenido > *:nth-child(2) { animation-delay: 0.15s; }
+.HeroInicio-contenido > *:nth-child(3) { animation-delay: 0.25s; }
+.HeroInicio-contenido > *:nth-child(4) { animation-delay: 0.35s; }
 .HeroInicio-kicker {
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -428,7 +512,14 @@ button { font-family: inherit; cursor: pointer; }
   border-radius: var(--radio-base);
   padding: var(--espacio-sm);
   position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+.SeccionProceso-paso:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--sombra-media);
+}
+.SeccionProceso-paso:hover .SeccionProceso-numero { transform: scale(1.1); }
+.SeccionProceso-numero { transition: transform 0.2s ease; }
 .SeccionProceso-numero {
   display: inline-flex;
   align-items: center;
@@ -490,6 +581,7 @@ button { font-family: inherit; cursor: pointer; }
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--espacio-md);
+  animation: aparecer 0.6s ease both;
 }
 .DetalleAnimal-imagen {
   width: 100%;
@@ -516,7 +608,7 @@ button { font-family: inherit; cursor: pointer; }
 
 @media (max-width: 599.98px) {
   .EncabezadoPrincipal-menu {
-    display: none;
+    display: flex;
     position: absolute;
     top: 100%;
     left: 0;
@@ -524,10 +616,20 @@ button { font-family: inherit; cursor: pointer; }
     background: var(--fondo-base);
     border-bottom: 1px solid var(--borde-suave);
     flex-direction: column;
-    padding: var(--espacio-sm);
+    padding: 0 var(--espacio-sm);
     gap: var(--espacio-sm);
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: max-height 0.25s ease, opacity 0.2s ease, transform 0.2s ease, padding 0.25s ease;
   }
-  .EncabezadoPrincipal-menu.abierto { display: flex; }
+  .EncabezadoPrincipal-menu.abierto {
+    max-height: 320px;
+    opacity: 1;
+    transform: translateY(0);
+    padding: var(--espacio-sm);
+  }
   .EncabezadoPrincipal-toggle { display: inline-flex; }
 
   .BarraFiltros-grupo,
