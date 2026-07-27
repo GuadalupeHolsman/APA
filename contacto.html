@@ -34,15 +34,16 @@
   </div>
 </header>
 
-<section class="Seccion" style="padding-bottom: 0;">
-  <div class="Contenedor">
-    <h1 class="TextoDisplay">Contacto y cómo ayudar</h1>
-    <p class="TextoBase" style="margin-top: var(--espacio-xs); max-width: 640px;">Escribinos por consultas de adopción, para ser socio o donar. No manejamos pagos en línea: coordinamos todo por este medio o por redes.</p>
+<section class="HeroInicio" style="--imagen-hero: url('assets/img/animales/fideo.jpg');">
+  <div class="HeroInicio-contenido">
+    <span class="HeroInicio-kicker">Estamos para ayudarte</span>
+    <h1 class="TextoDisplay">Hablemos.</h1>
+    <p class="TextoBase">Escribinos por consultas de adopción, para ser socio o donar. No manejamos pagos en línea: coordinamos todo por este medio o por redes.</p>
   </div>
 </section>
 
-<section class="Seccion">
-  <div class="Contenedor" style="display:grid; grid-template-columns: 1fr; gap: var(--espacio-md);">
+<section class="Seccion" style="padding-bottom: var(--espacio-md);">
+  <div class="Contenedor ContactoLayout">
 
     <form class="FormularioContacto" data-form-contacto data-revelar novalidate>
       <h2 class="TextoGrande" style="margin-bottom: var(--espacio-sm);">Envianos tu consulta</h2>
@@ -80,29 +81,95 @@
       </p>
     </form>
 
-    <div>
-      <h2 class="TextoGrande" style="margin-bottom: var(--espacio-sm);">Otras formas de colaborar</h2>
-      <div class="SeccionProceso-pasos" style="grid-template-columns: 1fr;" data-revelar-grupo>
-        <div class="SeccionProceso-paso" data-revelar>
-          <p class="TextoBase"><strong>Ser socio.</strong> Un aporte mensual sostiene la comida y la atención veterinaria del refugio.</p>
-        </div>
-        <div class="SeccionProceso-paso" data-revelar>
-          <p class="TextoBase"><strong>Donar.</strong> Aceptamos donaciones puntuales en dinero o en insumos (alimento, medicamentos, mantas).</p>
-        </div>
-        <div class="SeccionProceso-paso" data-revelar>
-          <p class="TextoBase"><strong>Difundir.</strong> Compartir nuestras publicaciones en redes ayuda a que más perros encuentren familia.</p>
+    <div class="TarjetaInfo-grupo" data-revelar-grupo>
+      <div class="TarjetaInfo" data-revelar>
+        <span class="IconoCirculo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.3 7-12a7 7 0 1 0-14 0c0 5.7 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        </span>
+        <div>
+          <p class="TarjetaInfo-titulo">Dónde estamos</p>
+          <p class="TarjetaInfo-texto">La Plata, Buenos Aires. La dirección exacta del refugio se comparte al coordinar una visita.</p>
         </div>
       </div>
+      <div class="TarjetaInfo" data-revelar>
+        <span class="IconoCirculo IconoCirculo--mostaza" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+        </span>
+        <div>
+          <p class="TarjetaInfo-titulo">Tiempo de respuesta</p>
+          <p class="TarjetaInfo-texto">Somos un grupo reducido de voluntarios: solemos responder dentro de las 24 a 48 horas hábiles.</p>
+        </div>
+      </div>
+      <div class="TarjetaInfo" data-revelar>
+        <span class="IconoCirculo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+        </span>
+        <div>
+          <p class="TarjetaInfo-titulo">Seguinos en redes</p>
+          <p class="TarjetaInfo-texto">Publicamos a diario los perros disponibles y las novedades del refugio.</p>
+          <div class="PiePagina-redes" style="margin-top: var(--espacio-xs);">
+            <a class="IconoRed_Instagram" href="https://instagram.com/apa.perritosenadopcion" target="_blank" rel="noopener" aria-label="Instagram de APA La Plata" style="background: var(--color-secundario); color:#fff;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+            </a>
+            <a class="IconoRed_Facebook" href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook de APA La Plata" style="background: var(--color-secundario); color:#fff;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h-2a4 4 0 0 0-4 4v3H7v4h2v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <h2 class="TextoGrande" style="margin: var(--espacio-md) 0 var(--espacio-sm);">Seguinos en redes</h2>
-      <div class="PiePagina-redes">
-        <a class="IconoRed_Instagram" href="https://instagram.com/apa.perritosenadopcion" target="_blank" rel="noopener" aria-label="Instagram de APA La Plata" style="background: var(--color-secundario); color:#fff;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
-        </a>
-        <a class="IconoRed_Facebook" href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook de APA La Plata" style="background: var(--color-secundario); color:#fff;">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h-2a4 4 0 0 0-4 4v3H7v4h2v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-        </a>
+<section class="Seccion Seccion--acento">
+  <div class="Contenedor">
+    <h2 class="SeccionTitulo" data-revelar>Otras formas de colaborar</h2>
+    <div class="SeccionProceso-pasos" data-revelar-grupo>
+      <div class="SeccionProceso-paso" data-revelar>
+        <span class="IconoCirculo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.3-9.3-8.6C1.2 8.6 2.7 5 6 5c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.3 0 4.8 3.6 3.3 6.4C19 15.7 12 20 12 20z"/></svg>
+        </span>
+        <h3 class="TarjetaValor-titulo">Ser socio</h3>
+        <p class="TarjetaValor-texto">Un aporte mensual sostiene la comida y la atención veterinaria del refugio.</p>
       </div>
+      <div class="SeccionProceso-paso" data-revelar>
+        <span class="IconoCirculo IconoCirculo--mostaza" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="13" rx="1"/><path d="M3 8l2-4h14l2 4"/><path d="M12 8v13"/></svg>
+        </span>
+        <h3 class="TarjetaValor-titulo">Donar</h3>
+        <p class="TarjetaValor-texto">Aceptamos donaciones puntuales en dinero o en insumos (alimento, medicamentos, mantas).</p>
+      </div>
+      <div class="SeccionProceso-paso" data-revelar>
+        <span class="IconoCirculo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10v4a1 1 0 0 0 1 1h2l4 4V5L6 9H4a1 1 0 0 0-1 1z"/><path d="M15 8a4 4 0 0 1 0 8"/><path d="M18 5a8 8 0 0 1 0 14"/></svg>
+        </span>
+        <h3 class="TarjetaValor-titulo">Difundir</h3>
+        <p class="TarjetaValor-texto">Compartir nuestras publicaciones en redes ayuda a que más perros encuentren familia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="Seccion">
+  <div class="Contenedor" style="max-width: 800px;">
+    <h2 class="SeccionTitulo" data-revelar>Preguntas frecuentes</h2>
+    <div class="AcordeonFAQ" data-revelar-grupo>
+      <details data-revelar>
+        <summary>¿Necesito sacar turno para conocer a los perros?</summary>
+        <p class="AcordeonFAQ-respuesta">Sí. Como somos un grupo reducido de voluntarios, coordinamos las visitas por consulta previa para poder recibirte bien y mostrarte a los perros con calma.</p>
+      </details>
+      <details data-revelar>
+        <summary>¿Qué piden para adoptar?</summary>
+        <p class="AcordeonFAQ-respuesta">Una charla previa para conocer tu situación y una visita al refugio. No pedimos papeles complicados, pero sí buscamos que la adopción sea responsable y pensada para toda la vida del animal.</p>
+      </details>
+      <details data-revelar>
+        <summary>¿Puedo colaborar sin adoptar?</summary>
+        <p class="AcordeonFAQ-respuesta">Sí, podés ser socio con un aporte mensual, hacer una donación puntual en dinero o insumos, o simplemente ayudarnos difundiendo nuestras publicaciones en redes.</p>
+      </details>
+      <details data-revelar>
+        <summary>¿Las donaciones se retiran o hay que llevarlas al refugio?</summary>
+        <p class="AcordeonFAQ-respuesta">Depende de la donación y de la disponibilidad de los voluntarios. Escribinos y lo coordinamos según cada caso.</p>
+      </details>
     </div>
   </div>
 </section>
