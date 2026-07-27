@@ -44,7 +44,7 @@
 <section class="Seccion">
   <div class="Contenedor" style="display:grid; grid-template-columns: 1fr; gap: var(--espacio-md);">
 
-    <form class="FormularioContacto" data-form-contacto novalidate>
+    <form class="FormularioContacto" data-form-contacto data-revelar novalidate>
       <h2 class="TextoGrande" style="margin-bottom: var(--espacio-sm);">Envianos tu consulta</h2>
 
       <div class="CampoTexto">
@@ -82,14 +82,14 @@
 
     <div>
       <h2 class="TextoGrande" style="margin-bottom: var(--espacio-sm);">Otras formas de colaborar</h2>
-      <div class="SeccionProceso-pasos" style="grid-template-columns: 1fr;">
-        <div class="SeccionProceso-paso">
+      <div class="SeccionProceso-pasos" style="grid-template-columns: 1fr;" data-revelar-grupo>
+        <div class="SeccionProceso-paso" data-revelar>
           <p class="TextoBase"><strong>Ser socio.</strong> Un aporte mensual sostiene la comida y la atención veterinaria del refugio.</p>
         </div>
-        <div class="SeccionProceso-paso">
+        <div class="SeccionProceso-paso" data-revelar>
           <p class="TextoBase"><strong>Donar.</strong> Aceptamos donaciones puntuales en dinero o en insumos (alimento, medicamentos, mantas).</p>
         </div>
-        <div class="SeccionProceso-paso">
+        <div class="SeccionProceso-paso" data-revelar>
           <p class="TextoBase"><strong>Difundir.</strong> Compartir nuestras publicaciones en redes ayuda a que más perros encuentren familia.</p>
         </div>
       </div>

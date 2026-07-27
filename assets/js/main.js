@@ -1,5 +1,67 @@
 /* APA La Plata — comportamiento del sitio */
 
+const observadorRevelado = new IntersectionObserver(
+  (entradas) => {
+    entradas.forEach((entrada) => {
+      if (entrada.isIntersecting) {
+        entrada.target.classList.add("visible");
+        observadorRevelado.unobserve(entrada.target);
+      }
+    });
+  },
+  { threshold: 0.15 }
+);
+
+function observarRevelados(raiz) {
+  (raiz || document).querySelectorAll("[data-revelar]:not([data-observado])").forEach((el) => {
+    el.dataset.observado = "1";
+    observadorRevelado.observe(el);
+  });
+}
+
+function animarContador(el) {
+  const final = parseFloat(el.dataset.contador);
+  const desde = parseFloat(el.dataset.desde || "0");
+  const sufijo = el.dataset.sufijo || "";
+  const duracion = 1200;
+  const inicio = performance.now();
+  function paso(ahora) {
+    const progreso = Math.min((ahora - inicio) / duracion, 1);
+    const facilitado = 1 - Math.pow(1 - progreso, 3);
+    const valor = Math.round(desde + (final - desde) * facilitado);
+    el.textContent = `${valor}${sufijo}`;
+    if (progreso < 1) requestAnimationFrame(paso);
+  }
+  requestAnimationFrame(paso);
+}
+
+function iniciarContadores() {
+  const elementos = document.querySelectorAll("[data-contador]");
+  if (!elementos.length) return;
+  const observador = new IntersectionObserver(
+    (entradas) => {
+      entradas.forEach((entrada) => {
+        if (entrada.isIntersecting) {
+          animarContador(entrada.target);
+          observador.unobserve(entrada.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+  elementos.forEach((el) => observador.observe(el));
+}
+
+function iniciarHeaderFlotante() {
+  const header = document.querySelector(".EncabezadoPrincipal");
+  if (!header) return;
+  const actualizar = () => {
+    header.classList.toggle("EncabezadoPrincipal--flotante", window.scrollY > 8);
+  };
+  actualizar();
+  window.addEventListener("scroll", actualizar, { passive: true });
+}
+
 function iniciarMenu() {
   const boton = document.querySelector(".EncabezadoPrincipal-toggle");
   const menu = document.querySelector(".EncabezadoPrincipal-menu");
@@ -15,7 +77,7 @@ function tarjetaAnimalHTML(animal) {
     animal.estado === "disponible" ? "EtiquetaEstado_Disponible" : "EtiquetaEstado_EnProceso";
   const etiquetaTexto = animal.estado === "disponible" ? "Disponible" : "En proceso";
   return `
-    <article class="TarjetaAnimal" data-id="${animal.id}">
+    <article class="TarjetaAnimal" data-id="${animal.id}" data-revelar>
       <img class="ImagenAnimal" src="${animal.imagen}" alt="Foto de ${animal.nombre}">
       <div class="TarjetaAnimal-cuerpo">
         <div class="TarjetaAnimal-encabezado">
@@ -34,6 +96,7 @@ function tarjetaAnimalHTML(animal) {
 
 function renderGrilla(contenedor, animales) {
   contenedor.innerHTML = animales.map(tarjetaAnimalHTML).join("");
+  observarRevelados(contenedor);
 }
 
 function iniciarGrillaInicio() {
@@ -159,8 +222,11 @@ function iniciarFormularioContacto() {
 
 document.addEventListener("DOMContentLoaded", () => {
   iniciarMenu();
+  iniciarHeaderFlotante();
   iniciarGrillaInicio();
   iniciarCatalogo();
   iniciarDetalleAnimal();
   iniciarFormularioContacto();
+  observarRevelados();
+  iniciarContadores();
 });
