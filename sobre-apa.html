@@ -34,21 +34,41 @@
   </div>
 </header>
 
-<section class="Seccion" style="padding-bottom: 0;">
-  <div class="Contenedor">
-    <h1 class="TextoDisplay">Quiénes somos</h1>
+<section class="HeroInicio" style="--imagen-hero: url('assets/img/animales/rocco.jpg');">
+  <div class="HeroInicio-contenido">
+    <span class="HeroInicio-kicker">Quiénes somos</span>
+    <h1 class="TextoDisplay">Cada rescate empieza con la decisión de no mirar para otro lado.</h1>
+    <p class="TextoBase">Somos APA La Plata: una asociación civil sin fines de lucro que desde 1982 rescata, cuida y reubica perros en situación de calle, abandono o maltrato en la ciudad de La Plata.</p>
+    <div class="HeroInicio-acciones">
+      <a class="BtnPrimario" href="adopcion.html"><img class="IconoPata" src="assets/img/pata.svg" alt="" aria-hidden="true"> Quiero adoptar</a>
+      <a class="BtnSecundario" href="contacto.html">Cómo colaborar</a>
+    </div>
   </div>
 </section>
 
 <section class="Seccion">
-  <div class="Contenedor SeccionInstitucional" data-revelar-grupo>
-    <p class="TextoBase" data-revelar>APA La Plata (Asociación Protectora de Animales de La Plata) es una asociación civil sin fines de lucro fundada en 1982, dedicada al rescate, cuidado y reubicación de perros en situación de calle, abandono o maltrato en la ciudad de La Plata.</p>
-    <p class="TextoBase" data-revelar>Sostenemos un refugio propio donde conviven decenas de perros a la espera de adopción. El trabajo lo realiza un grupo reducido de voluntarios y se financia con aportes de socios y donaciones: no recibimos ayuda estatal.</p>
-    <p class="TextoBase" data-revelar>Nuestra misión es simple: que ningún perro rescatado se quede sin la oportunidad de tener una familia, y que cada adopción sea responsable y para toda la vida del animal.</p>
+  <div class="Contenedor Narrativa" data-revelar-grupo>
+    <div data-revelar>
+      <h2 class="Narrativa-titulo">Un refugio sostenido a pulmón</h2>
+      <p class="TextoBase">Sostenemos un refugio propio donde conviven decenas de perros a la espera de adopción. Muchos llegaron de la calle, otros fueron entregados por sus familias o rescatados de situaciones de maltrato.</p>
+      <p class="TextoBase">El trabajo diario —alimentación, atención veterinaria, limpieza y cuidado— lo realiza un grupo reducido de voluntarios que dedica su tiempo libre al refugio.</p>
+    </div>
+    <img class="Narrativa-imagen" data-revelar src="assets/img/animales/simon.jpg" alt="Simón, uno de los perros del refugio, asomado en su recinto">
   </div>
 </section>
 
 <section class="Seccion Seccion--acento">
+  <div class="Contenedor Narrativa" data-revelar-grupo>
+    <img class="Narrativa-imagen" data-revelar src="assets/img/animales/luna.jpg" alt="Luna, una de las perras del refugio, mirando a cámara">
+    <div data-revelar>
+      <h2 class="Narrativa-titulo">Sin ayuda estatal, gracias a socios y donantes</h2>
+      <p class="TextoBase">No recibimos ningún tipo de subsidio ni ayuda estatal. Todo se sostiene con los aportes de nuestros socios y con donaciones puntuales de quienes se acercan a colaborar.</p>
+      <p class="TextoBase">Nuestra misión es simple: que ningún perro rescatado se quede sin la oportunidad de tener una familia, y que cada adopción sea responsable y para toda la vida del animal.</p>
+    </div>
+  </div>
+</section>
+
+<section class="Seccion">
   <div class="Contenedor DatosInstitucionales-grid" style="grid-template-columns: repeat(3, 1fr);" data-revelar-grupo>
     <div class="DatoInstitucional" data-revelar>
       <span class="DatoInstitucional-numero" data-contador="1982" data-desde="1950">1950</span>
@@ -65,22 +85,48 @@
   </div>
 </section>
 
+<section class="Seccion Seccion--acento">
+  <div class="Contenedor">
+    <h2 class="SeccionTitulo" data-revelar>A quién nos dirigimos</h2>
+    <div class="SeccionProceso-pasos" data-revelar-grupo>
+      <div class="SeccionProceso-paso" data-revelar>
+        <span class="IconoCirculo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4.4 3.6-7 8-7s8 2.6 8 7"/></svg>
+        </span>
+        <h3 class="TarjetaValor-titulo">Adoptantes potenciales</h3>
+        <p class="TarjetaValor-texto">Personas y familias de La Plata que buscan adoptar un perro y necesitan conocer el proceso, los requisitos y a los animales disponibles.</p>
+      </div>
+      <div class="SeccionProceso-paso" data-revelar>
+        <span class="IconoCirculo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="3"/><circle cx="17" cy="10" r="2.4"/><path d="M3 20c0-3.5 2.7-6 6-6s6 2.5 6 6"/><path d="M15.5 15c2.6 0 4.5 1.9 4.5 4.6"/></svg>
+        </span>
+        <h3 class="TarjetaValor-titulo">Comunidad de seguidores</h3>
+        <p class="TarjetaValor-texto">Personas que ya siguen a APA en redes y buscan un canal más ordenado para informarse sobre el refugio.</p>
+      </div>
+      <div class="SeccionProceso-paso" data-revelar>
+        <span class="IconoCirculo IconoCirculo--mostaza" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.3-9.3-8.6C1.2 8.6 2.7 5 6 5c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.3 0 4.8 3.6 3.3 6.4C19 15.7 12 20 12 20z"/></svg>
+        </span>
+        <h3 class="TarjetaValor-titulo">Donantes y socios</h3>
+        <p class="TarjetaValor-texto">Personas dispuestas a colaborar de forma sostenida o puntual con el sostenimiento del refugio.</p>
+      </div>
+      <div class="SeccionProceso-paso" data-revelar>
+        <span class="IconoCirculo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.6L21 9.3l-4.5 4.2 1.2 6.1L12 16.9l-5.7 2.7 1.2-6.1L3 9.3l6.4-.7L12 3z"/></svg>
+        </span>
+        <h3 class="TarjetaValor-titulo">Voluntarios potenciales</h3>
+        <p class="TarjetaValor-texto">Personas interesadas en sumarse a las tareas diarias del refugio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="Seccion">
   <div class="Contenedor">
-    <h2 class="SeccionTitulo">A quién nos dirigimos</h2>
-    <div class="SeccionProceso-pasos" style="grid-template-columns: 1fr;" data-revelar-grupo>
-      <div class="SeccionProceso-paso" data-revelar>
-        <p class="TextoBase"><strong>Adoptantes potenciales:</strong> personas y familias de La Plata que buscan adoptar un perro y necesitan conocer el proceso, los requisitos y a los animales disponibles.</p>
-      </div>
-      <div class="SeccionProceso-paso" data-revelar>
-        <p class="TextoBase"><strong>Comunidad de seguidores:</strong> personas que ya siguen a APA en redes y buscan un canal más ordenado para informarse.</p>
-      </div>
-      <div class="SeccionProceso-paso" data-revelar>
-        <p class="TextoBase"><strong>Donantes y socios:</strong> personas dispuestas a colaborar con el sostenimiento del refugio.</p>
-      </div>
-      <div class="SeccionProceso-paso" data-revelar>
-        <p class="TextoBase"><strong>Voluntarios potenciales:</strong> personas interesadas en sumarse a las tareas del refugio.</p>
-      </div>
+    <h2 class="SeccionTitulo" data-revelar>Algunos de los que esperan una familia</h2>
+    <div class="GrillaAdopcion" data-grilla-inicio data-revelar-grupo></div>
+    <div style="text-align:center; margin-top: var(--espacio-md);">
+      <a class="BtnSecundario" href="adopcion.html">Ver catálogo completo</a>
     </div>
   </div>
 </section>

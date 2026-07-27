@@ -649,3 +649,114 @@ button { font-family: inherit; cursor: pointer; }
   .BarraFiltros-titulo { cursor: default; }
   .BarraFiltros-icono { display: none; }
 }
+
+/* =========================================================
+   Componentes adicionales — Sobre APA y Contacto
+   ========================================================= */
+
+/* Ícono circular decorativo (usado en TarjetaValor y tarjetas de info) */
+.IconoCirculo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--color-secundario);
+  color: #fff;
+  margin-bottom: var(--espacio-sm);
+  transition: transform 0.2s ease;
+}
+.IconoCirculo svg { width: 24px; height: 24px; }
+.IconoCirculo--mostaza { background: var(--color-primario); color: var(--texto-base); }
+.SeccionProceso-paso:hover .IconoCirculo { transform: scale(1.1) rotate(-4deg); }
+
+/* Tarjeta de valor / público objetivo (reutiliza el marco de SeccionProceso-paso) */
+.TarjetaValor-titulo { font-size: var(--texto-grande); font-weight: 800; margin-bottom: var(--espacio-xs); }
+.TarjetaValor-texto { color: var(--texto-suave); }
+
+/* Narrativa: bloque de texto + imagen (historia institucional) */
+.Narrativa {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espacio-md);
+  align-items: center;
+}
+.Narrativa-imagen {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radio-base);
+  box-shadow: var(--sombra-media);
+}
+.Narrativa-titulo { font-size: var(--texto-grande); font-weight: 800; margin-bottom: var(--espacio-xs); }
+.Narrativa p + p { margin-top: var(--espacio-xs); }
+
+/* Layout de la página de contacto: formulario + tarjetas de info */
+.ContactoLayout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espacio-md);
+  align-items: start;
+}
+
+/* Tarjeta de info de contacto */
+.TarjetaInfo-grupo {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espacio-sm);
+}
+.TarjetaInfo {
+  background: var(--fondo-tarjeta);
+  border: 1px solid var(--borde-suave);
+  border-radius: var(--radio-base);
+  padding: var(--espacio-sm);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--espacio-sm);
+}
+.TarjetaInfo .IconoCirculo { margin-bottom: 0; flex-shrink: 0; width: 44px; height: 44px; }
+.TarjetaInfo .IconoCirculo svg { width: 20px; height: 20px; }
+.TarjetaInfo-titulo { font-weight: 700; }
+.TarjetaInfo-texto { color: var(--texto-suave); font-size: var(--texto-pequeno); }
+
+/* Acordeón de preguntas frecuentes (usa <details>/<summary> nativos) */
+.AcordeonFAQ { display: flex; flex-direction: column; gap: var(--espacio-sm); }
+.AcordeonFAQ details {
+  background: var(--fondo-tarjeta);
+  border: 1px solid var(--borde-suave);
+  border-radius: var(--radio-base);
+  padding: var(--espacio-sm);
+  transition: box-shadow 0.2s ease;
+}
+.AcordeonFAQ details[open] { box-shadow: var(--sombra-suave); }
+.AcordeonFAQ summary {
+  cursor: pointer;
+  font-weight: 700;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-sm);
+}
+.AcordeonFAQ summary::-webkit-details-marker { display: none; }
+.AcordeonFAQ summary::after {
+  content: "+";
+  font-size: 1.4em;
+  line-height: 1;
+  color: var(--color-secundario);
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+.AcordeonFAQ details[open] summary::after { transform: rotate(45deg); }
+.AcordeonFAQ-respuesta { margin-top: var(--espacio-xs); color: var(--texto-suave); }
+
+@media (min-width: 600px) {
+  .Narrativa { grid-template-columns: 1fr 1fr; }
+  .TarjetaInfo-grupo { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .ContactoLayout { grid-template-columns: 3fr 2fr; }
+  .TarjetaInfo-grupo { grid-template-columns: 1fr; }
+}
