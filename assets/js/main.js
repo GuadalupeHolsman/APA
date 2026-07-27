@@ -25,7 +25,7 @@ function tarjetaAnimalHTML(animal) {
         <span class="TextoPequeno">${animal.edadTexto}</span>
         <p class="TarjetaAnimal-temperamento">${animal.temperamento}</p>
         <a class="BtnPrimario" href="animal.html?id=${animal.id}">
-          <span class="IconoPata" aria-hidden="true">🐾</span> Quiero adoptar
+          <img class="IconoPata" src="assets/img/pata.svg" alt="" aria-hidden="true"> Quiero adoptar
         </a>
       </div>
     </article>
@@ -119,7 +119,7 @@ function iniciarDetalleAnimal() {
       </dl>
       <div class="HeroInicio-acciones">
         <a class="BtnPrimario" href="contacto.html?animal=${animal.id}">
-          <span class="IconoPata" aria-hidden="true">🐾</span> Quiero adoptar a ${animal.nombre}
+          <img class="IconoPata" src="assets/img/pata.svg" alt="" aria-hidden="true"> Quiero adoptar a ${animal.nombre}
         </a>
         <a class="BtnSecundario" href="adopcion.html" style="border-color: var(--color-primario); color: var(--texto-base);">Volver al listado</a>
       </div>
