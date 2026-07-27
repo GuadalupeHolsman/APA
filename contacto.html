@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contacto — APA La Plata</title>
+<meta name="description" content="Contactate con APA La Plata para consultar por una adopción, ser socio o donar.">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="EncabezadoPrincipal">
+  <div class="EncabezadoPrincipal-contenedor">
+    <a class="EncabezadoPrincipal-logo" href="index.html">
+      <img src="assets/img/logo.svg" alt="">
+      APA La Plata
+    </a>
+    <nav class="EncabezadoPrincipal-menu" id="menu-principal">
+      <a href="index.html">Inicio</a>
+      <a href="adopcion.html">Adoptar</a>
+      <a href="sobre-apa.html">Sobre APA</a>
+      <a href="contacto.html" aria-current="page">Contacto</a>
+    </nav>
+    <div class="EncabezadoPrincipal-acciones">
+      <a class="BtnPrimario" href="adopcion.html">Adoptar</a>
+      <button class="EncabezadoPrincipal-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-principal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="Seccion" style="padding-bottom: 0;">
+  <div class="Contenedor">
+    <h1 class="TextoDisplay">Contacto y cómo ayudar</h1>
+    <p class="TextoBase" style="margin-top: var(--espacio-xs); max-width: 640px;">Escribinos por consultas de adopción, para ser socio o donar. No manejamos pagos en línea: coordinamos todo por este medio o por redes.</p>
+  </div>
+</section>
+
+<section class="Seccion">
+  <div class="Contenedor" style="display:grid; grid-template-columns: 1fr; gap: var(--espacio-md);">
+
+    <form class="FormularioContacto" data-form-contacto novalidate>
+      <h2 class="TextoGrande" style="margin-bottom: var(--espacio-sm);">Envianos tu consulta</h2>
+
+      <div class="CampoTexto">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" required>
+      </div>
+
+      <div class="CampoTexto">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="CampoTexto">
+        <label for="motivo">Motivo de la consulta</label>
+        <select id="motivo" name="motivo" required>
+          <option value="">Elegí una opción</option>
+          <option value="adopcion">Quiero adoptar</option>
+          <option value="socio">Quiero ser socio</option>
+          <option value="donacion">Quiero donar</option>
+          <option value="voluntariado">Consulta general</option>
+        </select>
+      </div>
+
+      <div class="CampoTexto">
+        <label for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" required></textarea>
+      </div>
+
+      <button class="BtnPrimario" type="submit">Enviar consulta</button>
+
+      <p class="FormularioContacto-mensaje" data-form-confirmacion>
+        ¡Gracias! Recibimos tu mensaje y te vamos a responder a la brevedad.
+      </p>
+    </form>
+
+    <div>
+      <h2 class="TextoGrande" style="margin-bottom: var(--espacio-sm);">Otras formas de colaborar</h2>
+      <div class="SeccionProceso-pasos" style="grid-template-columns: 1fr;">
+        <div class="SeccionProceso-paso">
+          <p class="TextoBase"><strong>Ser socio.</strong> Un aporte mensual sostiene la comida y la atención veterinaria del refugio.</p>
+        </div>
+        <div class="SeccionProceso-paso">
+          <p class="TextoBase"><strong>Donar.</strong> Aceptamos donaciones puntuales en dinero o en insumos (alimento, medicamentos, mantas).</p>
+        </div>
+        <div class="SeccionProceso-paso">
+          <p class="TextoBase"><strong>Difundir.</strong> Compartir nuestras publicaciones en redes ayuda a que más perros encuentren familia.</p>
+        </div>
+      </div>
+
+      <h2 class="TextoGrande" style="margin: var(--espacio-md) 0 var(--espacio-sm);">Seguinos en redes</h2>
+      <div class="PiePagina-redes">
+        <a class="IconoRed_Instagram" href="https://instagram.com/apa.perritosenadopcion" target="_blank" rel="noopener" aria-label="Instagram de APA La Plata" style="background: var(--color-secundario); color:#fff;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+        </a>
+        <a class="IconoRed_Facebook" href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook de APA La Plata" style="background: var(--color-secundario); color:#fff;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h-2a4 4 0 0 0-4 4v3H7v4h2v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="PiePagina">
+  <div class="PiePagina-contenedor">
+    <div class="PiePagina-columna">
+      <h3>APA La Plata</h3>
+      <p class="TextoPequeno" style="color:#D9D2C3;">Asociación Protectora de Animales de La Plata. Refugio propio, desde 1982.</p>
+    </div>
+    <div class="PiePagina-columna">
+      <h3>Navegación</h3>
+      <p><a href="adopcion.html">Adoptar</a></p>
+      <p><a href="sobre-apa.html">Sobre APA</a></p>
+      <p><a href="contacto.html">Contacto</a></p>
+    </div>
+    <div class="PiePagina-columna">
+      <h3>Contacto</h3>
+      <p>La Plata, Buenos Aires</p>
+      <p><a href="contacto.html">Enviar consulta</a></p>
+    </div>
+    <div class="PiePagina-columna">
+      <h3>Redes</h3>
+      <div class="PiePagina-redes">
+        <a class="IconoRed_Instagram" href="https://instagram.com/apa.perritosenadopcion" target="_blank" rel="noopener" aria-label="Instagram de APA La Plata">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+        </a>
+        <a class="IconoRed_Facebook" href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook de APA La Plata">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h-2a4 4 0 0 0-4 4v3H7v4h2v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="PiePagina-base">© 1982–2026 APA La Plata. Asociación civil sin fines de lucro.</div>
+</footer>
+
+<script src="assets/js/animales.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

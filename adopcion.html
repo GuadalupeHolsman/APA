@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adoptar — APA La Plata</title>
+<meta name="description" content="Catálogo completo de perros disponibles para adopción en APA La Plata. Filtrá por tamaño y edad.">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="EncabezadoPrincipal">
+  <div class="EncabezadoPrincipal-contenedor">
+    <a class="EncabezadoPrincipal-logo" href="index.html">
+      <img src="assets/img/logo.svg" alt="">
+      APA La Plata
+    </a>
+    <nav class="EncabezadoPrincipal-menu" id="menu-principal">
+      <a href="index.html">Inicio</a>
+      <a href="adopcion.html" aria-current="page">Adoptar</a>
+      <a href="sobre-apa.html">Sobre APA</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+    <div class="EncabezadoPrincipal-acciones">
+      <a class="BtnPrimario" href="contacto.html">Contacto</a>
+      <button class="EncabezadoPrincipal-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-principal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<section class="Seccion" style="padding-bottom: 0;">
+  <div class="Contenedor">
+    <h1 class="TextoDisplay">Perros en adopción</h1>
+    <p class="TextoBase" style="margin-top: var(--espacio-xs); max-width: 640px;">Todos conviven en nuestro refugio a la espera de una familia. Usá los filtros para encontrar al compañero que mejor se adapte a tu casa.</p>
+  </div>
+</section>
+
+<section class="Seccion">
+  <div class="Contenedor GrillaAdopcion-layout">
+    <aside class="BarraFiltros">
+      <div class="BarraFiltros-titulo">
+        Filtros
+        <svg class="BarraFiltros-icono" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="BarraFiltros-grupo">
+        <h3>Tamaño</h3>
+        <div class="BarraFiltros-opciones">
+          <label><input type="checkbox" data-grupo="tamano" value="pequeno"> Pequeño</label>
+          <label><input type="checkbox" data-grupo="tamano" value="mediano"> Mediano</label>
+          <label><input type="checkbox" data-grupo="tamano" value="grande"> Grande</label>
+        </div>
+      </div>
+      <div class="BarraFiltros-grupo">
+        <h3>Edad</h3>
+        <div class="BarraFiltros-opciones">
+          <label><input type="checkbox" data-grupo="edad" value="joven"> Joven</label>
+          <label><input type="checkbox" data-grupo="edad" value="adulto"> Adulto</label>
+          <label><input type="checkbox" data-grupo="edad" value="senior"> Senior</label>
+        </div>
+      </div>
+      <button class="BtnSecundario BarraFiltros-limpiar" data-limpiar-filtros type="button">Limpiar filtros</button>
+    </aside>
+
+    <div>
+      <p class="GrillaAdopcion-resultado TextoPequeno" data-resultado-conteo></p>
+      <div class="GrillaAdopcion" data-grilla-catalogo></div>
+      <div class="GrillaAdopcion-vacio" data-grilla-vacio>
+        No hay perros que coincidan con esos filtros por ahora. Probá quitar alguno o escribinos por Instagram, sumamos perros todo el tiempo.
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="PiePagina">
+  <div class="PiePagina-contenedor">
+    <div class="PiePagina-columna">
+      <h3>APA La Plata</h3>
+      <p class="TextoPequeno" style="color:#D9D2C3;">Asociación Protectora de Animales de La Plata. Refugio propio, desde 1982.</p>
+    </div>
+    <div class="PiePagina-columna">
+      <h3>Navegación</h3>
+      <p><a href="adopcion.html">Adoptar</a></p>
+      <p><a href="sobre-apa.html">Sobre APA</a></p>
+      <p><a href="contacto.html">Contacto</a></p>
+    </div>
+    <div class="PiePagina-columna">
+      <h3>Contacto</h3>
+      <p>La Plata, Buenos Aires</p>
+      <p><a href="contacto.html">Enviar consulta</a></p>
+    </div>
+    <div class="PiePagina-columna">
+      <h3>Redes</h3>
+      <div class="PiePagina-redes">
+        <a class="IconoRed_Instagram" href="https://instagram.com/apa.perritosenadopcion" target="_blank" rel="noopener" aria-label="Instagram de APA La Plata">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+        </a>
+        <a class="IconoRed_Facebook" href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook de APA La Plata">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h-2a4 4 0 0 0-4 4v3H7v4h2v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="PiePagina-base">© 1982–2026 APA La Plata. Asociación civil sin fines de lucro.</div>
+</footer>
+
+<script src="assets/js/animales.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
