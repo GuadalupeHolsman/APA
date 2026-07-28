@@ -86,6 +86,33 @@ ul { list-style: none; margin: 0; padding: 0; }
 h1, h2, h3, p { margin: 0; }
 button { font-family: inherit; cursor: pointer; }
 
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--color-secundario);
+  outline-offset: 2px;
+}
+
+.SkipLink {
+  position: absolute;
+  top: -100px;
+  left: var(--espacio-sm);
+  z-index: 1000;
+  background: var(--color-secundario);
+  color: #fff;
+  padding: var(--espacio-xs) var(--espacio-sm);
+  border-radius: 0 0 var(--radio-base) var(--radio-base);
+  font-weight: 700;
+  transition: top 0.15s ease;
+}
+.SkipLink:focus {
+  top: 0;
+}
+
 .Contenedor {
   max-width: var(--ancho-lectura);
   margin: 0 auto;
@@ -248,6 +275,106 @@ button { font-family: inherit; cursor: pointer; }
   height: 16px;
   vertical-align: -2px;
 }
+
+/* Botón de favorito (corazón) */
+.TarjetaAnimal-imagenWrap { position: relative; }
+.BtnFavorito {
+  position: absolute;
+  top: var(--espacio-xs);
+  right: var(--espacio-xs);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(30, 30, 30, 0.45);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(2px);
+  transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+.BtnFavorito svg { width: 18px; height: 18px; transition: transform 0.2s ease; }
+.BtnFavorito:hover { transform: scale(1.1); background: rgba(30, 30, 30, 0.65); }
+.BtnFavorito.activo { color: #fff; background: #E0455F; }
+.BtnFavorito.activo svg { fill: currentColor; transform: scale(1.08); }
+.BtnFavorito--grande {
+  width: 48px;
+  height: 48px;
+  top: var(--espacio-sm);
+  right: var(--espacio-sm);
+}
+.BtnFavorito--grande svg { width: 24px; height: 24px; }
+
+/* Ícono de favoritos en el header */
+.BtnFavoritosNav {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: var(--texto-base);
+  transition: background 0.15s ease;
+}
+.BtnFavoritosNav:hover { background: rgba(30, 30, 30, 0.06); }
+.BtnFavoritosNav svg { width: 22px; height: 22px; }
+.BtnFavoritosNav-contador {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 3px;
+  border-radius: 999px;
+  background: #E0455F;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 16px;
+  text-align: center;
+  display: none;
+}
+.BtnFavoritosNav-contador.visible { display: block; }
+
+/* Botón de compartir por WhatsApp */
+.BtnCompartirWhatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espacio-xs);
+  margin-top: var(--espacio-sm);
+  color: #25D366;
+  font-weight: 700;
+  transition: opacity 0.15s ease;
+}
+.BtnCompartirWhatsapp:hover { opacity: 0.75; }
+.BtnCompartirWhatsapp svg { width: 22px; height: 22px; }
+
+/* Botón flotante volver arriba */
+.BtnVolverArriba {
+  position: fixed;
+  right: var(--espacio-md);
+  bottom: var(--espacio-md);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: var(--color-secundario);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--sombra-media);
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease, background 0.15s ease;
+  z-index: 90;
+}
+.BtnVolverArriba svg { width: 20px; height: 20px; }
+.BtnVolverArriba.visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.BtnVolverArriba:hover { background: var(--color-secundario-oscuro); }
 
 /* =========================================================
    MOLÉCULAS
