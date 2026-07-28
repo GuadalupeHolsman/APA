@@ -6,13 +6,13 @@
 /* ---------- Variables ---------- */
 :root {
   /* Paleta de colores */
-  --color-primario: #E8B23A;
-  --color-primario-oscuro: #C9932199;
-  --color-secundario: #2F5D50;
-  --color-secundario-oscuro: #24473d;
-  --texto-base: #2A2622;
+  --color-primario: #D4AF37;
+  --color-primario-oscuro: #B3922A;
+  --color-secundario: #2E8B57;
+  --color-secundario-oscuro: #0B6E4F;
+  --texto-base: #1E1E1E;
   --texto-suave: #6B655C;
-  --fondo-base: #FBF6EC;
+  --fondo-base: #F7F3E3;
   --fondo-tarjeta: #FFFFFF;
   --borde-suave: #E7DFCB;
 
@@ -32,9 +32,9 @@
   --radio-base: 12px;
   --ancho-lectura: 1100px;
 
-  --sombra-suave: 0 1px 3px rgba(42, 38, 34, 0.06);
-  --sombra-media: 0 8px 20px rgba(42, 38, 34, 0.12);
-  --sombra-fuerte: 0 16px 40px rgba(42, 38, 34, 0.18);
+  --sombra-suave: 0 1px 3px rgba(30, 30, 30, 0.06);
+  --sombra-media: 0 8px 20px rgba(30, 30, 30, 0.12);
+  --sombra-fuerte: 0 16px 40px rgba(30, 30, 30, 0.18);
 }
 
 /* ---------- Animaciones ---------- */
@@ -159,7 +159,7 @@ button { font-family: inherit; cursor: pointer; }
   font-weight: 700;
   transition: background 0.15s ease, transform 0.15s ease;
 }
-.BtnSecundario:hover { background: rgba(232, 178, 58, 0.18); transform: translateY(-2px); }
+.BtnSecundario:hover { background: rgba(212, 175, 55, 0.18); transform: translateY(-2px); }
 
 /* Etiquetas de estado */
 .EtiquetaEstado_Disponible,
@@ -174,7 +174,7 @@ button { font-family: inherit; cursor: pointer; }
   transition: transform 0.2s ease;
 }
 .EtiquetaEstado_Disponible {
-  background: #E4F0DE;
+  background: #E6F3EC;
   color: var(--color-secundario);
 }
 .EtiquetaEstado_EnProceso {
@@ -303,7 +303,7 @@ button { font-family: inherit; cursor: pointer; }
   margin-top: var(--espacio-sm);
   padding: var(--espacio-sm);
   border-radius: 8px;
-  background: #E4F0DE;
+  background: #E6F3EC;
   color: var(--color-secundario-oscuro);
   font-weight: 700;
   display: none;
@@ -377,9 +377,9 @@ button { font-family: inherit; cursor: pointer; }
   transition: box-shadow 0.2s ease, background 0.2s ease;
 }
 .EncabezadoPrincipal--flotante {
-  background: rgba(251, 246, 236, 0.92);
+  background: rgba(247, 243, 227, 0.92);
   backdrop-filter: blur(8px);
-  box-shadow: 0 4px 16px rgba(42, 38, 34, 0.08);
+  box-shadow: 0 4px 16px rgba(30, 30, 30, 0.08);
 }
 .EncabezadoPrincipal-contenedor {
   max-width: var(--ancho-lectura);
@@ -429,7 +429,7 @@ button { font-family: inherit; cursor: pointer; }
 /* Hero de inicio */
 .HeroInicio {
   position: relative;
-  background: linear-gradient(180deg, rgba(42, 38, 34, 0.6), rgba(42, 38, 34, 0.78)),
+  background: linear-gradient(180deg, rgba(30, 30, 30, 0.6), rgba(30, 30, 30, 0.78)),
     var(--imagen-hero, none) center/cover no-repeat;
   background-color: var(--color-secundario);
   color: #fff;
@@ -569,7 +569,7 @@ button { font-family: inherit; cursor: pointer; }
 
 /* Secciones genéricas de página */
 .Seccion { padding: var(--espacio-lg) 0; }
-.Seccion--acento { background: #F3E7C9; }
+.Seccion--acento { background: #F3E9CC; }
 .SeccionInstitucional { display: grid; grid-template-columns: 1fr; gap: var(--espacio-md); }
 .DatosInstitucionales-grid {
   display: grid;
