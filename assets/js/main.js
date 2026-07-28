@@ -1,5 +1,52 @@
 /* APA La Plata — comportamiento del sitio */
 
+const CLAVE_FAVORITOS = "apa_favoritos";
+
+function obtenerFavoritos() {
+  try {
+    const guardado = JSON.parse(localStorage.getItem(CLAVE_FAVORITOS));
+    return Array.isArray(guardado) ? guardado : [];
+  } catch {
+    return [];
+  }
+}
+
+function esFavorito(id) {
+  return obtenerFavoritos().includes(id);
+}
+
+function alternarFavorito(id) {
+  const favoritos = obtenerFavoritos();
+  const indice = favoritos.indexOf(id);
+  if (indice === -1) favoritos.push(id);
+  else favoritos.splice(indice, 1);
+  localStorage.setItem(CLAVE_FAVORITOS, JSON.stringify(favoritos));
+  actualizarContadorFavoritos();
+  return indice === -1;
+}
+
+function actualizarContadorFavoritos() {
+  const cantidad = obtenerFavoritos().length;
+  document.querySelectorAll("[data-favoritos-contador]").forEach((el) => {
+    el.textContent = String(cantidad);
+    el.classList.toggle("visible", cantidad > 0);
+  });
+}
+
+function iniciarFavoritos() {
+  actualizarContadorFavoritos();
+  document.addEventListener("click", (evento) => {
+    const boton = evento.target.closest("[data-favorito]");
+    if (!boton) return;
+    const id = boton.dataset.favorito;
+    const activo = alternarFavorito(id);
+    document.querySelectorAll(`[data-favorito="${id}"]`).forEach((b) => {
+      b.classList.toggle("activo", activo);
+      b.setAttribute("aria-pressed", String(activo));
+    });
+  });
+}
+
 const observadorRevelado = new IntersectionObserver(
   (entradas) => {
     entradas.forEach((entrada) => {
@@ -62,6 +109,25 @@ function iniciarHeaderFlotante() {
   window.addEventListener("scroll", actualizar, { passive: true });
 }
 
+function iniciarVolverArriba() {
+  const boton = document.createElement("button");
+  boton.className = "BtnVolverArriba";
+  boton.type = "button";
+  boton.setAttribute("aria-label", "Volver arriba");
+  boton.innerHTML =
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>';
+  document.body.appendChild(boton);
+
+  const actualizar = () => {
+    boton.classList.toggle("visible", window.scrollY > 600);
+  };
+  actualizar();
+  window.addEventListener("scroll", actualizar, { passive: true });
+  boton.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
+
 function iniciarMenu() {
   const boton = document.querySelector(".EncabezadoPrincipal-toggle");
   const menu = document.querySelector(".EncabezadoPrincipal-menu");
@@ -76,9 +142,15 @@ function tarjetaAnimalHTML(animal) {
   const etiquetaClase =
     animal.estado === "disponible" ? "EtiquetaEstado_Disponible" : "EtiquetaEstado_EnProceso";
   const etiquetaTexto = animal.estado === "disponible" ? "Disponible" : "En proceso";
+  const favorito = esFavorito(animal.id);
   return `
     <article class="TarjetaAnimal" data-id="${animal.id}" data-revelar>
-      <img class="ImagenAnimal" src="${animal.imagen}" alt="Foto de ${animal.nombre}">
+      <div class="TarjetaAnimal-imagenWrap">
+        <img class="ImagenAnimal" src="${animal.imagen}" alt="Foto de ${animal.nombre}">
+        <button class="BtnFavorito${favorito ? " activo" : ""}" data-favorito="${animal.id}" aria-pressed="${favorito}" aria-label="Marcar a ${animal.nombre} como favorito">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.3-9.3-8.6C1.2 8.6 2.7 5 6 5c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.3 0 4.8 3.6 3.3 6.4C19 15.7 12 20 12 20z"/></svg>
+        </button>
+      </div>
       <div class="TarjetaAnimal-cuerpo">
         <div class="TarjetaAnimal-encabezado">
           <span class="TarjetaAnimal-nombre">${animal.nombre}</span>
@@ -121,7 +193,12 @@ function iniciarCatalogo() {
   }
 
   const checks = barraFiltros.querySelectorAll("input[type=checkbox]");
+  const favoritosFiltro = barraFiltros.querySelector("[data-favoritos-filtro]");
   const limpiarBtn = barraFiltros.querySelector("[data-limpiar-filtros]");
+
+  if (favoritosFiltro && new URLSearchParams(window.location.search).get("favoritos") === "1") {
+    favoritosFiltro.checked = true;
+  }
 
   function filtrar() {
     const tamanos = Array.from(checks)
@@ -130,18 +207,25 @@ function iniciarCatalogo() {
     const edades = Array.from(checks)
       .filter((c) => c.dataset.grupo === "edad" && c.checked)
       .map((c) => c.value);
+    const soloFavoritos = favoritosFiltro ? favoritosFiltro.checked : false;
 
     const filtrados = ANIMALES.filter((a) => {
       const pasaTamano = tamanos.length === 0 || tamanos.includes(a.tamano);
       const pasaEdad = edades.length === 0 || edades.includes(a.edadCategoria);
-      return pasaTamano && pasaEdad;
+      const pasaFavorito = !soloFavoritos || esFavorito(a.id);
+      return pasaTamano && pasaEdad && pasaFavorito;
     });
 
     renderGrilla(contenedor, filtrados);
     if (resultado) {
       resultado.textContent = `${filtrados.length} de ${ANIMALES.length} perros en adopción`;
     }
-    if (vacio) vacio.classList.toggle("activo", filtrados.length === 0);
+    if (vacio) {
+      vacio.classList.toggle("activo", filtrados.length === 0);
+      vacio.textContent = soloFavoritos && filtrados.length === 0
+        ? "Todavía no marcaste ningún perro como favorito. Tocá el corazón de una tarjeta para guardarlo acá."
+        : "No hay perros que coincidan con esos filtros por ahora. Probá quitar alguno o escribinos por Instagram, sumamos perros todo el tiempo.";
+    }
   }
 
   checks.forEach((c) => c.addEventListener("change", filtrar));
@@ -151,6 +235,9 @@ function iniciarCatalogo() {
       filtrar();
     });
   }
+  document.addEventListener("click", (evento) => {
+    if (evento.target.closest("[data-favorito]")) filtrar();
+  });
 
   filtrar();
 }
@@ -165,11 +252,21 @@ function iniciarDetalleAnimal() {
   const etiquetaClase =
     animal.estado === "disponible" ? "EtiquetaEstado_Disponible" : "EtiquetaEstado_EnProceso";
   const etiquetaTexto = animal.estado === "disponible" ? "Disponible" : "En proceso";
+  const favorito = esFavorito(animal.id);
 
   document.title = `${animal.nombre} — APA La Plata`;
 
+  const mensajeWhatsapp = encodeURIComponent(
+    `Mirá a ${animal.nombre} en APA La Plata, está esperando una familia: ${window.location.href}`
+  );
+
   contenedor.innerHTML = `
-    <img class="DetalleAnimal-imagen" src="${animal.imagen}" alt="Foto de ${animal.nombre}">
+    <div class="TarjetaAnimal-imagenWrap">
+      <img class="DetalleAnimal-imagen" src="${animal.imagen}" alt="Foto de ${animal.nombre}">
+      <button class="BtnFavorito BtnFavorito--grande${favorito ? " activo" : ""}" data-favorito="${animal.id}" aria-pressed="${favorito}" aria-label="Marcar a ${animal.nombre} como favorito">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.3-9.3-8.6C1.2 8.6 2.7 5 6 5c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.3 0 4.8 3.6 3.3 6.4C19 15.7 12 20 12 20z"/></svg>
+      </button>
+    </div>
     <div>
       <span class="${etiquetaClase}">${etiquetaTexto}</span>
       <h1 class="TextoDisplay" style="margin-top: var(--espacio-xs);">${animal.nombre}</h1>
@@ -186,8 +283,17 @@ function iniciarDetalleAnimal() {
         </a>
         <a class="BtnSecundario" href="adopcion.html" style="border-color: var(--color-primario); color: var(--texto-base);">Volver al listado</a>
       </div>
+      <a class="BtnCompartirWhatsapp" href="https://wa.me/?text=${mensajeWhatsapp}" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.1.8.8-3-.2-.3a8.2 8.2 0 1 1 7.2 3.9zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.2.2-.4.1-.1 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2 1 2.4c.1.1 1.6 2.5 3.9 3.4.5.2 1 .4 1.3.5.5.2 1 .1 1.3-.1.4-.2 1.2-.9 1.3-1.3.2-.4.2-.7.1-.8-.1-.1-.2-.2-.4-.3z"/></svg>
+        Compartir por WhatsApp
+      </a>
     </div>
   `;
+
+  const contenedorRelacionados = document.querySelector("[data-relacionados]");
+  if (contenedorRelacionados) {
+    renderGrilla(contenedorRelacionados, ANIMALES.filter((a) => a.id !== animal.id).slice(0, 3));
+  }
 }
 
 function capitalizar(texto) {
@@ -221,12 +327,14 @@ function iniciarFormularioContacto() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  iniciarFavoritos();
   iniciarMenu();
   iniciarHeaderFlotante();
   iniciarGrillaInicio();
   iniciarCatalogo();
   iniciarDetalleAnimal();
   iniciarFormularioContacto();
+  iniciarVolverArriba();
   observarRevelados();
   iniciarContadores();
 });

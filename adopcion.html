@@ -5,6 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Adoptar — APA La Plata</title>
 <meta name="description" content="Catálogo completo de perros disponibles para adopción en APA La Plata. Filtrá por tamaño y edad.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="APA La Plata">
+<meta property="og:locale" content="es_AR">
+<meta property="og:title" content="Adoptar — APA La Plata">
+<meta property="og:description" content="Catálogo completo de perros disponibles para adopción en APA La Plata. Filtrá por tamaño y edad.">
+<meta property="og:image" content="assets/img/animales/rocco.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Adoptar — APA La Plata">
+<meta name="twitter:description" content="Catálogo completo de perros disponibles para adopción en APA La Plata. Filtrá por tamaño y edad.">
+<meta name="twitter:image" content="assets/img/animales/rocco.jpg">
+<meta name="theme-color" content="#2E8B57">
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,6 +23,7 @@
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+<a class="SkipLink" href="#contenido">Saltar al contenido</a>
 
 <header class="EncabezadoPrincipal">
   <div class="EncabezadoPrincipal-contenedor">
@@ -26,6 +38,10 @@
       <a href="contacto.html">Contacto</a>
     </nav>
     <div class="EncabezadoPrincipal-acciones">
+      <a class="BtnFavoritosNav" href="adopcion.html?favoritos=1" aria-label="Ver mis favoritos">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.3-9.3-8.6C1.2 8.6 2.7 5 6 5c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.3 0 4.8 3.6 3.3 6.4C19 15.7 12 20 12 20z"/></svg>
+        <span class="BtnFavoritosNav-contador" data-favoritos-contador>0</span>
+      </a>
       <a class="BtnPrimario" href="contacto.html">Contacto</a>
       <button class="EncabezadoPrincipal-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-principal">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -33,6 +49,8 @@
     </div>
   </div>
 </header>
+
+<main id="contenido">
 
 <section class="Seccion" style="padding-bottom: 0;">
   <div class="Contenedor">
@@ -64,11 +82,17 @@
           <label><input type="checkbox" data-grupo="edad" value="senior"> Senior</label>
         </div>
       </div>
+      <div class="BarraFiltros-grupo">
+        <h3>Favoritos</h3>
+        <div class="BarraFiltros-opciones">
+          <label><input type="checkbox" data-favoritos-filtro> Ver solo mis favoritos</label>
+        </div>
+      </div>
       <button class="BtnSecundario BarraFiltros-limpiar" data-limpiar-filtros type="button">Limpiar filtros</button>
     </aside>
 
     <div>
-      <p class="GrillaAdopcion-resultado TextoPequeno" data-resultado-conteo></p>
+      <p class="GrillaAdopcion-resultado TextoPequeno" data-resultado-conteo aria-live="polite"></p>
       <div class="GrillaAdopcion" data-grilla-catalogo data-revelar-grupo></div>
       <div class="GrillaAdopcion-vacio" data-grilla-vacio>
         No hay perros que coincidan con esos filtros por ahora. Probá quitar alguno o escribinos por Instagram, sumamos perros todo el tiempo.
@@ -76,6 +100,8 @@
     </div>
   </div>
 </section>
+
+</main>
 
 <footer class="PiePagina">
   <div class="PiePagina-contenedor">

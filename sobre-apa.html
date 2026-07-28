@@ -5,6 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sobre APA — APA La Plata</title>
 <meta name="description" content="Quiénes somos, nuestra historia y misión. APA La Plata, asociación civil sin fines de lucro desde 1982.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="APA La Plata">
+<meta property="og:locale" content="es_AR">
+<meta property="og:title" content="Sobre APA — APA La Plata">
+<meta property="og:description" content="Quiénes somos, nuestra historia y misión. APA La Plata, asociación civil sin fines de lucro desde 1982.">
+<meta property="og:image" content="assets/img/animales/rocco.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sobre APA — APA La Plata">
+<meta name="twitter:description" content="Quiénes somos, nuestra historia y misión. APA La Plata, asociación civil sin fines de lucro desde 1982.">
+<meta name="twitter:image" content="assets/img/animales/rocco.jpg">
+<meta name="theme-color" content="#2E8B57">
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,6 +23,7 @@
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+<a class="SkipLink" href="#contenido">Saltar al contenido</a>
 
 <header class="EncabezadoPrincipal">
   <div class="EncabezadoPrincipal-contenedor">
@@ -26,6 +38,10 @@
       <a href="contacto.html">Contacto</a>
     </nav>
     <div class="EncabezadoPrincipal-acciones">
+      <a class="BtnFavoritosNav" href="adopcion.html?favoritos=1" aria-label="Ver mis favoritos">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.3-9.3-8.6C1.2 8.6 2.7 5 6 5c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.3 0 4.8 3.6 3.3 6.4C19 15.7 12 20 12 20z"/></svg>
+        <span class="BtnFavoritosNav-contador" data-favoritos-contador>0</span>
+      </a>
       <a class="BtnPrimario" href="adopcion.html">Adoptar</a>
       <button class="EncabezadoPrincipal-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-principal">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -33,6 +49,8 @@
     </div>
   </div>
 </header>
+
+<main id="contenido">
 
 <section class="HeroInicio" style="--imagen-hero: url('assets/img/animales/rocco.jpg');">
   <div class="HeroInicio-contenido">
@@ -128,6 +146,8 @@
     </div>
   </div>
 </section>
+
+</main>
 
 <footer class="PiePagina">
   <div class="PiePagina-contenedor">
