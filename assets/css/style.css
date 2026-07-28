@@ -929,3 +929,177 @@ summary:focus-visible,
   .ContactoLayout { grid-template-columns: 3fr 2fr; }
   .TarjetaInfo-grupo { grid-template-columns: 1fr; }
 }
+
+/* =========================================================
+   Documentación del sistema (Etapa 4)
+   ========================================================= */
+
+.DocIndice {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espacio-xs);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  counter-reset: doc-indice;
+}
+.DocIndice li { counter-increment: doc-indice; }
+.DocIndice a {
+  display: flex;
+  align-items: baseline;
+  gap: var(--espacio-xs);
+  padding: var(--espacio-sm);
+  background: var(--fondo-tarjeta);
+  border: 1px solid var(--borde-suave);
+  border-radius: var(--radio-base);
+  font-weight: 700;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.DocIndice a:hover { transform: translateY(-2px); box-shadow: var(--sombra-media); }
+.DocIndice a::before {
+  content: counter(doc-indice, decimal-leading-zero);
+  color: var(--color-secundario);
+  font-weight: 800;
+}
+
+.DocSeccion-numero {
+  display: inline-block;
+  font-size: var(--texto-pequeno);
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-secundario);
+  margin-bottom: var(--espacio-2xs);
+}
+
+/* 4.3 — Muestras de variables */
+.MuestraColores {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--espacio-sm);
+}
+.MuestraColor {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-sm);
+  background: var(--fondo-tarjeta);
+  border: 1px solid var(--borde-suave);
+  border-radius: var(--radio-base);
+  padding: var(--espacio-sm);
+}
+.MuestraColor-swatch {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: 1px solid var(--borde-suave);
+}
+.MuestraColor code {
+  display: block;
+  font-weight: 700;
+  font-size: var(--texto-pequeno);
+}
+.MuestraColor span {
+  display: block;
+  color: var(--texto-suave);
+  font-size: var(--texto-pequeno);
+}
+
+.EscalaTipografica { display: flex; flex-direction: column; gap: var(--espacio-sm); }
+.EscalaTipografica-item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--espacio-sm);
+  background: var(--fondo-tarjeta);
+  border: 1px solid var(--borde-suave);
+  border-radius: var(--radio-base);
+  padding: var(--espacio-sm);
+  flex-wrap: wrap;
+}
+.EscalaTipografica-muestra { font-weight: 800; }
+.EscalaTipografica-meta {
+  font-size: var(--texto-pequeno);
+  color: var(--texto-suave);
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.EscalaEspaciado { display: flex; flex-direction: column; gap: var(--espacio-xs); }
+.EscalaEspaciado-item {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-sm);
+}
+.EscalaEspaciado-etiqueta {
+  width: 150px;
+  flex-shrink: 0;
+  font-size: var(--texto-pequeno);
+  font-weight: 700;
+}
+.EscalaEspaciado-barra {
+  height: var(--espacio-sm);
+  background: var(--color-secundario);
+  border-radius: 4px;
+}
+
+/* 4.4 — Inventario de componentes */
+.InventarioGrupo { margin-bottom: var(--espacio-lg); }
+.InventarioGrupo:last-child { margin-bottom: 0; }
+.InventarioGrupo-titulo {
+  font-size: var(--texto-grande);
+  font-weight: 800;
+  margin-bottom: var(--espacio-sm);
+  padding-bottom: var(--espacio-xs);
+  border-bottom: 2px solid var(--borde-suave);
+}
+.InventarioFila {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--espacio-md);
+}
+.InventarioItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--espacio-xs);
+}
+.InventarioItem-etiqueta {
+  font-size: var(--texto-pequeno);
+  color: var(--texto-suave);
+  background: var(--fondo-base);
+  border: 1px solid var(--borde-suave);
+  border-radius: 6px;
+  padding: 2px var(--espacio-xs);
+}
+
+/* Tabla de deconstrucción (Etapa 1.2) */
+.TablaDoc {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--fondo-tarjeta);
+  border: 1px solid var(--borde-suave);
+  border-radius: var(--radio-base);
+  overflow: hidden;
+}
+.TablaDoc th,
+.TablaDoc td {
+  text-align: left;
+  padding: var(--espacio-xs) var(--espacio-sm);
+  border-bottom: 1px solid var(--borde-suave);
+  vertical-align: top;
+}
+.TablaDoc th {
+  background: var(--color-acento-fondo);
+  font-size: var(--texto-pequeno);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.TablaDoc tr:last-child td { border-bottom: none; }
+.TablaDoc-wrap { overflow-x: auto; }
+
+@media (min-width: 600px) {
+  .MuestraColores { grid-template-columns: repeat(3, 1fr); }
+  .DocIndice { grid-template-columns: repeat(2, 1fr); }
+}
