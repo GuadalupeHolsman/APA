@@ -449,7 +449,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 .HeroInicio-contenido {
   position: relative;
-  max-width: 640px;
+  max-width: var(--ancho-lectura);
   margin: 0 auto;
   padding: var(--espacio-lg) var(--espacio-sm);
   display: flex;
@@ -457,6 +457,7 @@ button { font-family: inherit; cursor: pointer; }
   align-items: flex-start;
   gap: var(--espacio-sm);
 }
+.HeroInicio-contenido > * { max-width: 640px; }
 .HeroInicio-contenido > * { animation: aparecer 0.7s ease both; }
 .HeroInicio-contenido > *:nth-child(1) { animation-delay: 0.05s; }
 .HeroInicio-contenido > *:nth-child(2) { animation-delay: 0.15s; }
