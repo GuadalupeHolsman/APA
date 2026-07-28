@@ -53,9 +53,35 @@
 <main id="contenido">
 
 <section class="Seccion">
-  <div class="Contenedor DetalleAnimal" data-detalle-animal>
-    <!-- Contenido generado dinámicamente por assets/js/main.js -->
-  </div>
+  <article class="Contenedor DetalleAnimal" data-detalle-animal>
+    <div class="TarjetaAnimal-imagenWrap">
+      <img class="DetalleAnimal-imagen" id="detalle-imagen" src="assets/img/animales/toby.jpg" alt="Foto del perro en adopción">
+      <button class="BtnFavorito BtnFavorito--grande" id="detalle-favorito" type="button" aria-pressed="false" aria-label="Marcar como favorito">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.3-9.3-8.6C1.2 8.6 2.7 5 6 5c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.3 0 4.8 3.6 3.3 6.4C19 15.7 12 20 12 20z"/></svg>
+      </button>
+    </div>
+    <div>
+      <span class="EtiquetaEstado_Disponible" id="detalle-estado">Disponible</span>
+      <h1 class="TextoDisplay" id="detalle-nombre" style="margin-top: var(--espacio-xs);">Conociendo a este perro…</h1>
+      <p class="TextoSuave" id="detalle-descripcion" style="margin-top: var(--espacio-xs);">Cargando la información de este perro…</p>
+      <dl class="DetalleAnimal-ficha">
+        <div><dt>Edad aproximada</dt><dd id="detalle-edad">—</dd></div>
+        <div><dt>Tamaño</dt><dd id="detalle-tamano">—</dd></div>
+        <div><dt>Sexo</dt><dd id="detalle-sexo">—</dd></div>
+        <div><dt>Temperamento</dt><dd id="detalle-temperamento">—</dd></div>
+      </dl>
+      <div class="HeroInicio-acciones">
+        <a class="BtnPrimario" id="detalle-btn-adoptar" href="contacto.html">
+          <img class="IconoPata" src="assets/img/pata.svg" alt="" aria-hidden="true"> Quiero adoptar
+        </a>
+        <a class="BtnSecundario" href="adopcion.html" style="border-color: var(--color-primario); color: var(--texto-base);">Volver al listado</a>
+      </div>
+      <a class="BtnCompartirWhatsapp" id="detalle-whatsapp" href="https://wa.me/" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.1.8.8-3-.2-.3a8.2 8.2 0 1 1 7.2 3.9zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.2.2-.4.1-.1 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2 1 2.4c.1.1 1.6 2.5 3.9 3.4.5.2 1 .4 1.3.5.5.2 1 .1 1.3-.1.4-.2 1.2-.9 1.3-1.3.2-.4.2-.7.1-.8-.1-.1-.2-.2-.4-.3z"/></svg>
+        Compartir por WhatsApp
+      </a>
+    </div>
+  </article>
 </section>
 
 <section class="Seccion Seccion--acento">
@@ -71,7 +97,7 @@
   <div class="PiePagina-contenedor">
     <div class="PiePagina-columna">
       <h3>APA La Plata</h3>
-      <p class="TextoPequeno" style="color:#D9D2C3;">Asociación Protectora de Animales de La Plata. Refugio propio, desde 1982.</p>
+      <p class="TextoPequeno" style="color: var(--pie-texto-suave);">Asociación Protectora de Animales de La Plata. Refugio propio, desde 1982.</p>
     </div>
     <div class="PiePagina-columna">
       <h3>Navegación</h3>

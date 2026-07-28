@@ -145,22 +145,24 @@ function tarjetaAnimalHTML(animal) {
   const favorito = esFavorito(animal.id);
   return `
     <article class="TarjetaAnimal" data-id="${animal.id}" data-revelar>
-      <div class="TarjetaAnimal-imagenWrap">
-        <img class="ImagenAnimal" src="${animal.imagen}" alt="Foto de ${animal.nombre}">
-        <button class="BtnFavorito${favorito ? " activo" : ""}" data-favorito="${animal.id}" aria-pressed="${favorito}" aria-label="Marcar a ${animal.nombre} como favorito">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.3-9.3-8.6C1.2 8.6 2.7 5 6 5c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.3 0 4.8 3.6 3.3 6.4C19 15.7 12 20 12 20z"/></svg>
-        </button>
-      </div>
-      <div class="TarjetaAnimal-cuerpo">
-        <div class="TarjetaAnimal-encabezado">
-          <span class="TarjetaAnimal-nombre">${animal.nombre}</span>
-          <span class="${etiquetaClase}">${etiquetaTexto}</span>
+      <div class="TarjetaAnimal-fila">
+        <div class="TarjetaAnimal-imagenWrap">
+          <img class="ImagenAnimal" src="${animal.imagen}" alt="Foto de ${animal.nombre}">
+          <button class="BtnFavorito${favorito ? " activo" : ""}" data-favorito="${animal.id}" aria-pressed="${favorito}" aria-label="Marcar a ${animal.nombre} como favorito">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.3-9.3-8.6C1.2 8.6 2.7 5 6 5c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.3 0 4.8 3.6 3.3 6.4C19 15.7 12 20 12 20z"/></svg>
+          </button>
         </div>
-        <span class="TextoPequeno">${animal.edadTexto}</span>
-        <p class="TarjetaAnimal-temperamento">${animal.temperamento}</p>
-        <a class="BtnPrimario" href="animal.html?id=${animal.id}">
-          <img class="IconoPata" src="assets/img/pata.svg" alt="" aria-hidden="true"> Quiero adoptar
-        </a>
+        <div class="TarjetaAnimal-cuerpo">
+          <div class="TarjetaAnimal-encabezado">
+            <span class="TarjetaAnimal-nombre">${animal.nombre}</span>
+            <span class="${etiquetaClase}">${etiquetaTexto}</span>
+          </div>
+          <span class="TextoPequeno">${animal.edadTexto}</span>
+          <p class="TarjetaAnimal-temperamento">${animal.temperamento}</p>
+          <a class="BtnPrimario" href="animal.html?id=${animal.id}">
+            <img class="IconoPata" src="assets/img/pata.svg" alt="" aria-hidden="true"> Quiero adoptar
+          </a>
+        </div>
       </div>
     </article>
   `;
@@ -256,39 +258,35 @@ function iniciarDetalleAnimal() {
 
   document.title = `${animal.nombre} — APA La Plata`;
 
+  const imagen = contenedor.querySelector("#detalle-imagen");
+  imagen.src = animal.imagen;
+  imagen.alt = `Foto de ${animal.nombre}`;
+
+  const estado = contenedor.querySelector("#detalle-estado");
+  estado.className = etiquetaClase;
+  estado.textContent = etiquetaTexto;
+
+  contenedor.querySelector("#detalle-nombre").textContent = animal.nombre;
+  contenedor.querySelector("#detalle-descripcion").textContent = animal.descripcion;
+  contenedor.querySelector("#detalle-edad").textContent = animal.edadTexto;
+  contenedor.querySelector("#detalle-tamano").textContent = capitalizar(animal.tamano);
+  contenedor.querySelector("#detalle-sexo").textContent = capitalizar(animal.sexo);
+  contenedor.querySelector("#detalle-temperamento").textContent = animal.temperamento;
+
+  const favBoton = contenedor.querySelector("#detalle-favorito");
+  favBoton.dataset.favorito = animal.id;
+  favBoton.setAttribute("aria-pressed", String(favorito));
+  favBoton.setAttribute("aria-label", `Marcar a ${animal.nombre} como favorito`);
+  favBoton.classList.toggle("activo", favorito);
+
+  const btnAdoptar = contenedor.querySelector("#detalle-btn-adoptar");
+  btnAdoptar.href = `contacto.html?animal=${animal.id}`;
+  btnAdoptar.innerHTML = `<img class="IconoPata" src="assets/img/pata.svg" alt="" aria-hidden="true"> Quiero adoptar a ${animal.nombre}`;
+
   const mensajeWhatsapp = encodeURIComponent(
     `Mirá a ${animal.nombre} en APA La Plata, está esperando una familia: ${window.location.href}`
   );
-
-  contenedor.innerHTML = `
-    <div class="TarjetaAnimal-imagenWrap">
-      <img class="DetalleAnimal-imagen" src="${animal.imagen}" alt="Foto de ${animal.nombre}">
-      <button class="BtnFavorito BtnFavorito--grande${favorito ? " activo" : ""}" data-favorito="${animal.id}" aria-pressed="${favorito}" aria-label="Marcar a ${animal.nombre} como favorito">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.3-9.3-8.6C1.2 8.6 2.7 5 6 5c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.3 0 4.8 3.6 3.3 6.4C19 15.7 12 20 12 20z"/></svg>
-      </button>
-    </div>
-    <div>
-      <span class="${etiquetaClase}">${etiquetaTexto}</span>
-      <h1 class="TextoDisplay" style="margin-top: var(--espacio-xs);">${animal.nombre}</h1>
-      <p class="TextoSuave" style="margin-top: var(--espacio-xs);">${animal.descripcion}</p>
-      <dl class="DetalleAnimal-ficha">
-        <div><dt>Edad aproximada</dt><dd>${animal.edadTexto}</dd></div>
-        <div><dt>Tamaño</dt><dd>${capitalizar(animal.tamano)}</dd></div>
-        <div><dt>Sexo</dt><dd>${capitalizar(animal.sexo)}</dd></div>
-        <div><dt>Temperamento</dt><dd>${animal.temperamento}</dd></div>
-      </dl>
-      <div class="HeroInicio-acciones">
-        <a class="BtnPrimario" href="contacto.html?animal=${animal.id}">
-          <img class="IconoPata" src="assets/img/pata.svg" alt="" aria-hidden="true"> Quiero adoptar a ${animal.nombre}
-        </a>
-        <a class="BtnSecundario" href="adopcion.html" style="border-color: var(--color-primario); color: var(--texto-base);">Volver al listado</a>
-      </div>
-      <a class="BtnCompartirWhatsapp" href="https://wa.me/?text=${mensajeWhatsapp}" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.1.8.8-3-.2-.3a8.2 8.2 0 1 1 7.2 3.9zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.7.8-.8.9-.2.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.4.1-.5l.4-.4c.1-.1.2-.2.2-.4.1-.1 0-.3 0-.4l-.7-1.7c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2 1 2.4c.1.1 1.6 2.5 3.9 3.4.5.2 1 .4 1.3.5.5.2 1 .1 1.3-.1.4-.2 1.2-.9 1.3-1.3.2-.4.2-.7.1-.8-.1-.1-.2-.2-.4-.3z"/></svg>
-        Compartir por WhatsApp
-      </a>
-    </div>
-  `;
+  contenedor.querySelector("#detalle-whatsapp").href = `https://wa.me/?text=${mensajeWhatsapp}`;
 
   const contenedorRelacionados = document.querySelector("[data-relacionados]");
   if (contenedorRelacionados) {
