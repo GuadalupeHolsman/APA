@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documentación del sistema — APA La Plata</title>
+<meta name="description" content="Documentación del sistema de diseño del sitio de APA La Plata: caso, análisis de referencia, variables, componentes y decisiones técnicas.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="APA La Plata">
+<meta property="og:locale" content="es_AR">
+<meta property="og:title" content="Documentación del sistema — APA La Plata">
+<meta property="og:description" content="Documentación del sistema de diseño del sitio de APA La Plata: caso, análisis de referencia, variables, componentes y decisiones técnicas.">
+<meta property="og:image" content="assets/img/logo.svg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Documentación del sistema — APA La Plata">
+<meta name="twitter:description" content="Documentación del sistema de diseño del sitio de APA La Plata.">
+<meta name="theme-color" content="#2E8B57">
+<link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<a class="SkipLink" href="#contenido">Saltar al contenido</a>
+
+<header class="EncabezadoPrincipal">
+  <div class="EncabezadoPrincipal-contenedor">
+    <a class="EncabezadoPrincipal-logo" href="index.html">
+      <img src="assets/img/logo.svg" alt="">
+      APA La Plata
+    </a>
+    <nav class="EncabezadoPrincipal-menu" id="menu-principal">
+      <a href="index.html">Inicio</a>
+      <a href="adopcion.html">Adoptar</a>
+      <a href="sobre-apa.html">Sobre APA</a>
+      <a href="documentacion.html" aria-current="page">Documentación</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+    <div class="EncabezadoPrincipal-acciones">
+      <a class="BtnFavoritosNav" href="adopcion.html?favoritos=1" aria-label="Ver mis favoritos">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.3-9.3-8.6C1.2 8.6 2.7 5 6 5c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.3 0 4.8 3.6 3.3 6.4C19 15.7 12 20 12 20z"/></svg>
+        <span class="BtnFavoritosNav-contador" data-favoritos-contador>0</span>
+      </a>
+      <a class="BtnPrimario" href="adopcion.html">Adoptar</a>
+      <button class="EncabezadoPrincipal-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-principal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="contenido">
+
+<section class="Seccion" style="padding-bottom: 0;">
+  <div class="Contenedor">
+    <span class="HeroInicio-kicker" style="color: var(--color-primario-oscuro);">Etapa 4</span>
+    <h1 class="TextoDisplay" style="margin-top: var(--espacio-xs);">Documentación del sistema de diseño</h1>
+    <p class="TextoBase" style="margin-top: var(--espacio-xs); max-width: 640px;">Esta página documenta el caso, el análisis de referencia, las variables, los componentes y las decisiones técnicas detrás del sitio de APA La Plata.</p>
+  </div>
+</section>
+
+<section class="Seccion" aria-label="Índice de la documentación">
+  <div class="Contenedor">
+    <nav aria-label="Secciones de la documentación">
+      <ul class="DocIndice">
+        <li><a href="#sobre-el-caso">Sobre el caso</a></li>
+        <li><a href="#analisis-referencia">Análisis de referencia</a></li>
+        <li><a href="#variables-sistema">Variables del sistema</a></li>
+        <li><a href="#inventario-componentes">Inventario de componentes</a></li>
+        <li><a href="#decisiones-tecnicas">Decisiones técnicas</a></li>
+      </ul>
+    </nav>
+  </div>
+</section>
+
+<!-- 4.1 Sobre el caso -->
+<section class="Seccion Seccion--acento" id="sobre-el-caso">
+  <div class="Contenedor">
+    <span class="DocSeccion-numero">4.1</span>
+    <h2 class="SeccionTitulo">Sobre el caso</h2>
+    <div class="SeccionInstitucional">
+      <p class="TextoBase">APA La Plata (Asociación Protectora de Animales de La Plata) es una asociación civil sin fines de lucro fundada en 1982, dedicada al rescate, cuidado y reubicación de perros en situación de calle, abandono o maltrato en la ciudad de La Plata. Sostiene un refugio propio, trabajado por un grupo reducido de voluntarios y financiado por socios y donaciones, sin ayuda estatal.</p>
+      <p class="TextoBase">Antes de este sitio, la organización tenía presencia activa en Instagram y Facebook, pero no un sitio propio: la información institucional y el listado de perros en adopción vivían dispersos en el feed de redes, se perdían con rapidez y no eran buscables ni filtrables.</p>
+      <p class="TextoBase"><strong>Público destinatario:</strong> adoptantes potenciales, comunidad de seguidores en redes, donantes y socios, y voluntarios potenciales.</p>
+      <p class="TextoBase"><strong>Objetivo de la presencia web:</strong> <em>informar</em> —centralizar la información institucional y el catálogo de perros en adopción— y <em>convocar</em> —facilitar el contacto de adoptantes y guiarlos a través del proceso—. Quedan fuera de alcance la gestión de donaciones en línea y el reclutamiento formal de voluntarios.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4.2 Análisis de referencia -->
+<section class="Seccion" id="analisis-referencia">
+  <div class="Contenedor">
+    <span class="DocSeccion-numero">4.2</span>
+    <h2 class="SeccionTitulo">Análisis de referencia</h2>
+    <p class="TextoBase" style="max-width: 720px;">En la Etapa 1.2 se deconstruyó un sitio de adopción de animales con estructura comparable, identificando sus cinco niveles atómicos y las inconsistencias del sistema para no repetirlas en el propio.</p>
+
+    <h3 class="TextoGrande" style="margin-top: var(--espacio-md); margin-bottom: var(--espacio-xs);">Niveles atómicos identificados</h3>
+    <div class="TablaDoc-wrap">
+      <table class="TablaDoc">
+        <thead>
+          <tr><th scope="col">Nivel</th><th scope="col">Qué se identificó</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Variables</td><td>Color primario (verde institucional) y secundario (naranja de acento); tipografía redondeada para títulos y neutra para cuerpo; espaciado regular entre tarjetas.</td></tr>
+          <tr><td>Átomos</td><td>Botón "Adoptar", etiqueta de estado, ícono de pata, campo de búsqueda por nombre.</td></tr>
+          <tr><td>Moléculas</td><td>Tarjeta de animal, barra de filtros, formulario de contacto.</td></tr>
+          <tr><td>Organismos</td><td>Grilla de adopción, encabezado de navegación, pie de página.</td></tr>
+          <tr><td>Plantillas</td><td>Inicio, catálogo de adopción completo, detalle de un animal, contacto / cómo ayudar.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="TextoGrande" style="margin-top: var(--espacio-md); margin-bottom: var(--espacio-xs);">Inconsistencias detectadas</h3>
+    <p class="TextoBase">Paleta sin neutros documentados (al menos 4 grises distintos para texto secundario); tipografía sin escala clara (títulos de tarjeta y de sección con el mismo tamaño); espaciado inconsistente entre escritorio y mobile en los formularios; y al menos tres variantes visuales de botón sin razón funcional.</p>
+
+    <h3 class="TextoGrande" style="margin-top: var(--espacio-md); margin-bottom: var(--espacio-xs);">Qué influyó en el sistema propio</h3>
+    <p class="TextoBase">Del análisis se retomaron los patrones que funcionaban —la tarjeta de animal como unidad repetible y la grilla con filtros— y se corrigieron sus inconsistencias: un sistema único de botones (<code>BtnPrimario</code> / <code>BtnSecundario</code>) en vez de variantes sueltas, una jerarquía tipográfica explícita (<code>TextoPequeno</code> → <code>TextoDisplay</code>) y una paleta documentada como custom properties, sin grises sueltos. La nomenclatura de aquel análisis (<code>BtnAdoptar</code>, <code>EtiquetaEstado</code>, <code>TarjetaAnimal</code>, <code>BarraFiltros</code>, <code>GrillaAdopcion</code>, <code>EncabezadoPrincipal</code>, <code>PiePagina</code>) se mantuvo como base y se extendió con el formato <code>NombreClase_Datoextra</code> para variantes (por ejemplo <code>EtiquetaEstado_Disponible</code>).</p>
+  </div>
+</section>
+
+<!-- 4.3 Variables del sistema -->
+<section class="Seccion Seccion--acento" id="variables-sistema">
+  <div class="Contenedor">
+    <span class="DocSeccion-numero">4.3</span>
+    <h2 class="SeccionTitulo">Variables del sistema</h2>
+
+    <h3 class="TextoGrande" style="margin-bottom: var(--espacio-sm);">Paleta de colores</h3>
+    <div class="MuestraColores">
+      <div class="MuestraColor">
+        <span class="MuestraColor-swatch" style="background: var(--color-primario);"></span>
+        <div><code>--color-primario</code><span>#D4AF37 — marca, acentos</span></div>
+      </div>
+      <div class="MuestraColor">
+        <span class="MuestraColor-swatch" style="background: var(--color-primario-oscuro);"></span>
+        <div><code>--color-primario-oscuro</code><span>#B3922A</span></div>
+      </div>
+      <div class="MuestraColor">
+        <span class="MuestraColor-swatch" style="background: var(--color-secundario);"></span>
+        <div><code>--color-secundario</code><span>#2E8B57 — CTAs, navegación</span></div>
+      </div>
+      <div class="MuestraColor">
+        <span class="MuestraColor-swatch" style="background: var(--color-secundario-oscuro);"></span>
+        <div><code>--color-secundario-oscuro</code><span>#0B6E4F — hover</span></div>
+      </div>
+      <div class="MuestraColor">
+        <span class="MuestraColor-swatch" style="background: var(--texto-base);"></span>
+        <div><code>--texto-base</code><span>#1E1E1E — texto principal</span></div>
+      </div>
+      <div class="MuestraColor">
+        <span class="MuestraColor-swatch" style="background: var(--texto-suave);"></span>
+        <div><code>--texto-suave</code><span>#6B655C — texto secundario</span></div>
+      </div>
+      <div class="MuestraColor">
+        <span class="MuestraColor-swatch" style="background: var(--fondo-base);"></span>
+        <div><code>--fondo-base</code><span>#F7F3E3 — fondo general</span></div>
+      </div>
+      <div class="MuestraColor">
+        <span class="MuestraColor-swatch" style="background: var(--fondo-tarjeta);"></span>
+        <div><code>--fondo-tarjeta</code><span>#FFFFFF — tarjetas</span></div>
+      </div>
+      <div class="MuestraColor">
+        <span class="MuestraColor-swatch" style="background: var(--borde-suave);"></span>
+        <div><code>--borde-suave</code><span>#E7DFCB — bordes</span></div>
+      </div>
+    </div>
+    <p class="TextoPequeno" style="margin-top: var(--espacio-sm);">Además de esta paleta base, el sistema define variables semánticas derivadas para estados y acentos puntuales (<code>--color-disponible-fondo</code>, <code>--color-enproceso-fondo</code>, <code>--color-favorito</code>, <code>--color-whatsapp</code>, entre otras), todas declaradas junto a las anteriores en <code>:root</code>.</p>
+
+    <h3 class="TextoGrande" style="margin-top: var(--espacio-lg); margin-bottom: var(--espacio-sm);">Escala tipográfica</h3>
+    <div class="EscalaTipografica">
+      <div class="EscalaTipografica-item">
+        <span class="EscalaTipografica-muestra" style="font-size: var(--texto-pequeno);">Texto pequeño</span>
+        <span class="EscalaTipografica-meta"><code>--texto-pequeno</code> · 14px</span>
+      </div>
+      <div class="EscalaTipografica-item">
+        <span class="EscalaTipografica-muestra" style="font-size: var(--texto-base-size);">Texto base</span>
+        <span class="EscalaTipografica-meta"><code>--texto-base-size</code> · 16px</span>
+      </div>
+      <div class="EscalaTipografica-item">
+        <span class="EscalaTipografica-muestra" style="font-size: var(--texto-grande); font-weight: 700;">Texto grande</span>
+        <span class="EscalaTipografica-meta"><code>--texto-grande</code> · 22px</span>
+      </div>
+      <div class="EscalaTipografica-item">
+        <span class="EscalaTipografica-muestra" style="font-size: var(--texto-display); font-weight: 800;">Display</span>
+        <span class="EscalaTipografica-meta"><code>--texto-display</code> · 36px</span>
+      </div>
+    </div>
+
+    <h3 class="TextoGrande" style="margin-top: var(--espacio-lg); margin-bottom: var(--espacio-sm);">Escala de espaciado</h3>
+    <div class="EscalaEspaciado">
+      <div class="EscalaEspaciado-item">
+        <span class="EscalaEspaciado-etiqueta"><code>--espacio-xs</code> · 8px</span>
+        <span class="EscalaEspaciado-barra" style="width: var(--espacio-xs);"></span>
+      </div>
+      <div class="EscalaEspaciado-item">
+        <span class="EscalaEspaciado-etiqueta"><code>--espacio-sm</code> · 16px</span>
+        <span class="EscalaEspaciado-barra" style="width: var(--espacio-sm);"></span>
+      </div>
+      <div class="EscalaEspaciado-item">
+        <span class="EscalaEspaciado-etiqueta"><code>--espacio-md</code> · 32px</span>
+        <span class="EscalaEspaciado-barra" style="width: var(--espacio-md);"></span>
+      </div>
+      <div class="EscalaEspaciado-item">
+        <span class="EscalaEspaciado-etiqueta"><code>--espacio-lg</code> · 64px</span>
+        <span class="EscalaEspaciado-barra" style="width: var(--espacio-lg);"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4.4 Inventario de componentes -->
+<section class="Seccion" id="inventario-componentes">
+  <div class="Contenedor">
+    <span class="DocSeccion-numero">4.4</span>
+    <h2 class="SeccionTitulo">Inventario de componentes</h2>
+
+    <div class="InventarioGrupo">
+      <h3 class="InventarioGrupo-titulo">Átomos</h3>
+      <div class="InventarioFila">
+        <div class="InventarioItem">
+          <a class="BtnPrimario" href="#inventario-componentes"><img class="IconoPata" src="assets/img/pata.svg" alt="" aria-hidden="true"> Quiero adoptar</a>
+          <span class="InventarioItem-etiqueta">.BtnPrimario</span>
+        </div>
+        <div class="InventarioItem">
+          <a class="BtnSecundario" href="#inventario-componentes">Ver más</a>
+          <span class="InventarioItem-etiqueta">.BtnSecundario</span>
+        </div>
+        <div class="InventarioItem">
+          <span class="EtiquetaEstado_Disponible">Disponible</span>
+          <span class="InventarioItem-etiqueta">.EtiquetaEstado_Disponible</span>
+        </div>
+        <div class="InventarioItem">
+          <span class="EtiquetaEstado_EnProceso">En proceso</span>
+          <span class="InventarioItem-etiqueta">.EtiquetaEstado_EnProceso</span>
+        </div>
+        <div class="InventarioItem">
+          <a class="IconoRed_Instagram" href="#inventario-componentes" style="background: var(--color-secundario); color: var(--color-blanco);" aria-label="Ejemplo de ícono de red social">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+          </a>
+          <span class="InventarioItem-etiqueta">.IconoRed_Instagram</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="InventarioGrupo">
+      <h3 class="InventarioGrupo-titulo">Moléculas</h3>
+      <div class="InventarioFila">
+        <div class="InventarioItem" style="width: 220px;">
+          <div class="TarjetaAnimal" style="width: 100%;">
+            <div class="TarjetaAnimal-fila">
+              <div class="TarjetaAnimal-imagenWrap">
+                <img class="ImagenAnimal" src="assets/img/animales/toby.jpg" alt="Foto de Toby">
+              </div>
+              <div class="TarjetaAnimal-cuerpo">
+                <div class="TarjetaAnimal-encabezado">
+                  <span class="TarjetaAnimal-nombre">Toby</span>
+                  <span class="EtiquetaEstado_Disponible">Disponible</span>
+                </div>
+                <span class="TextoPequeno">Joven (aprox. 1 año)</span>
+                <a class="BtnPrimario" href="animal.html?id=toby">Ver más</a>
+              </div>
+            </div>
+          </div>
+          <span class="InventarioItem-etiqueta">.TarjetaAnimal</span>
+        </div>
+        <div class="InventarioItem" style="max-width: 220px;">
+          <div class="SeccionProceso-paso">
+            <span class="IconoCirculo" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.3-9.3-8.6C1.2 8.6 2.7 5 6 5c2 0 3.4 1.1 4 2.2.6-1.1 2-2.2 4-2.2 3.3 0 4.8 3.6 3.3 6.4C19 15.7 12 20 12 20z"/></svg>
+            </span>
+            <h4 class="TarjetaValor-titulo">Donantes y socios</h4>
+            <p class="TarjetaValor-texto">Ejemplo de tarjeta con ícono.</p>
+          </div>
+          <span class="InventarioItem-etiqueta">.TarjetaValor (sobre .SeccionProceso-paso)</span>
+        </div>
+        <div class="InventarioItem" style="max-width: 260px;">
+          <details style="background: var(--fondo-tarjeta); border: 1px solid var(--borde-suave); border-radius: var(--radio-base); padding: var(--espacio-sm); width: 100%;">
+            <summary style="cursor: pointer; font-weight: 700; list-style: none;">¿Puedo colaborar sin adoptar?</summary>
+            <p class="AcordeonFAQ-respuesta">Sí, como socio, donando o difundiendo.</p>
+          </details>
+          <span class="InventarioItem-etiqueta">.AcordeonFAQ (details/summary)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="InventarioGrupo">
+      <h3 class="InventarioGrupo-titulo">Organismos</h3>
+      <p class="TextoBase" style="margin-bottom: var(--espacio-sm);"><code>EncabezadoPrincipal</code> y <code>PiePagina</code> ya están en vivo en esta misma página (arriba y al final); acá se muestran <code>GrillaAdopcion</code> y <code>SeccionProceso</code> a menor escala.</p>
+      <div class="GrillaAdopcion" style="grid-template-columns: repeat(2, minmax(0, 220px)); margin-bottom: var(--espacio-md);">
+        <div class="TarjetaAnimal">
+          <div class="TarjetaAnimal-fila">
+            <div class="TarjetaAnimal-imagenWrap">
+              <img class="ImagenAnimal" src="assets/img/animales/rocco.jpg" alt="Foto de Rocco">
+            </div>
+            <div class="TarjetaAnimal-cuerpo">
+              <div class="TarjetaAnimal-encabezado">
+                <span class="TarjetaAnimal-nombre">Rocco</span>
+                <span class="EtiquetaEstado_Disponible">Disponible</span>
+              </div>
+              <span class="TextoPequeno">Adulto</span>
+              <a class="BtnPrimario" href="animal.html?id=rocco">Ver más</a>
+            </div>
+          </div>
+        </div>
+        <div class="TarjetaAnimal">
+          <div class="TarjetaAnimal-fila">
+            <div class="TarjetaAnimal-imagenWrap">
+              <img class="ImagenAnimal" src="assets/img/animales/luna.jpg" alt="Foto de Luna">
+            </div>
+            <div class="TarjetaAnimal-cuerpo">
+              <div class="TarjetaAnimal-encabezado">
+                <span class="TarjetaAnimal-nombre">Luna</span>
+                <span class="EtiquetaEstado_EnProceso">En proceso</span>
+              </div>
+              <span class="TextoPequeno">Adulta</span>
+              <a class="BtnPrimario" href="animal.html?id=luna">Ver más</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span class="InventarioItem-etiqueta">.GrillaAdopcion</span>
+
+      <div class="SeccionProceso-pasos" style="grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 500px; margin-top: var(--espacio-md);">
+        <div class="SeccionProceso-paso">
+          <span class="SeccionProceso-numero">1</span>
+          <p class="TextoBase">Conocé al perro.</p>
+        </div>
+        <div class="SeccionProceso-paso">
+          <span class="SeccionProceso-numero">2</span>
+          <p class="TextoBase">Enviá tu consulta.</p>
+        </div>
+      </div>
+      <span class="InventarioItem-etiqueta">.SeccionProceso-pasos</span>
+    </div>
+  </div>
+</section>
+
+<!-- 4.5 Decisiones técnicas -->
+<section class="Seccion Seccion--acento" id="decisiones-tecnicas">
+  <div class="Contenedor">
+    <span class="DocSeccion-numero">4.5</span>
+    <h2 class="SeccionTitulo">Decisiones técnicas</h2>
+    <div class="SeccionInstitucional">
+      <p class="TextoBase"><strong>Grilla principal.</strong> Cada página se arma con secciones de ancho completo que alternan fondo (<code>.Seccion</code> / <code>.Seccion--acento</code>), y dentro de cada una un <code>.Contenedor</code> centra el contenido a un máximo de 1100px. La disposición interna de los organismos se resuelve con CSS Grid: <code>.GrillaAdopcion</code> pasa de 1 a 2 y 3 columnas según el breakpoint, <code>.GrillaAdopcion-layout</code> ubica la barra de filtros junto a la grilla en escritorio (3/12 y 9/12 columnas), y <code>.PiePagina-contenedor</code> distribuye las columnas del pie. Flexbox queda para la microcomposición dentro de cada componente, como el orden de los elementos de <code>.TarjetaAnimal-cuerpo</code> o la alineación de <code>.EncabezadoPrincipal-contenedor</code>.</p>
+      <p class="TextoBase"><strong>Container queries.</strong> El componente <code>.TarjetaAnimal</code> declara <code>container-type: inline-size</code> y una regla <code>@container (min-width: 340px)</code> que reordena su contenido interno (<code>.TarjetaAnimal-fila</code>) de vertical a horizontal. Se eligió esta tarjeta porque es el único componente que se repite en contextos de ancho muy distinto dentro del propio sitio: la misma tarjeta ocupa una columna angosta en la grilla de 3 columnas del catálogo de escritorio y una columna ancha en la grilla de 1 columna de mobile. Una media query no podía resolverlo, porque en ambos casos el viewport no cambia de la misma forma que el espacio real disponible para la tarjeta.</p>
+      <p class="TextoBase"><strong>Lo más difícil de resolver.</strong> Conciliar el contenido generado dinámicamente (el catálogo y el detalle de cada animal se arman con JavaScript a partir de un único array de datos) con HTML semántico real. La primera versión del detalle de un animal reemplazaba todo un contenedor genérico con <code>innerHTML</code>, así que el <code>&lt;article&gt;</code> y el <code>&lt;h1&gt;</code> del perro no existían en el documento hasta que el script corría. Se resolvió invirtiendo el enfoque: el HTML de <code>animal.html</code> ya trae un esqueleto estático con esos elementos y contenido de respaldo, y el script solo completa sus valores por <code>id</code>.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="PiePagina">
+  <div class="PiePagina-contenedor">
+    <div class="PiePagina-columna">
+      <h3>APA La Plata</h3>
+      <p class="TextoPequeno" style="color: var(--pie-texto-suave);">Asociación Protectora de Animales de La Plata. Refugio propio, desde 1982.</p>
+    </div>
+    <div class="PiePagina-columna">
+      <h3>Navegación</h3>
+      <p><a href="adopcion.html">Adoptar</a></p>
+      <p><a href="sobre-apa.html">Sobre APA</a></p>
+      <p><a href="documentacion.html">Documentación</a></p>
+      <p><a href="contacto.html">Contacto</a></p>
+    </div>
+    <div class="PiePagina-columna">
+      <h3>Contacto</h3>
+      <p>La Plata, Buenos Aires</p>
+      <p><a href="contacto.html">Enviar consulta</a></p>
+    </div>
+    <div class="PiePagina-columna">
+      <h3>Redes</h3>
+      <div class="PiePagina-redes">
+        <a class="IconoRed_Instagram" href="https://instagram.com/apa.perritosenadopcion" target="_blank" rel="noopener" aria-label="Instagram de APA La Plata">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+        </a>
+        <a class="IconoRed_Facebook" href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook de APA La Plata">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h-2a4 4 0 0 0-4 4v3H7v4h2v7h4v-7h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="PiePagina-base">© 1982–2026 APA La Plata. Asociación civil sin fines de lucro.</div>
+</footer>
+
+<script src="assets/js/animales.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
